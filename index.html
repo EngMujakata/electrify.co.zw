@@ -1,1087 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Electrify Technologies | Enterprise Software Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #ffffff;
-            color: #111827;
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
-
-        :root {
-            --primary: #0641ab;
-            --primary-light: #1d55c7;
-            --primary-dark: #042d78;
-            --accent: #0641ab;
-            --accent-dark: #042d78;
-            --gray-50: #F8FAFC;
-            --gray-100: #F1F5F9;
-            --gray-200: #E2E8F0;
-            --gray-600: #475569;
-            --gray-800: #1E293B;
-            --shadow-sm: 0 1px 2px 0 rgb(6 65 171 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(6 65 171 / 0.08);
-            --shadow-lg: 0 10px 15px -3px rgb(6 65 171 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(6 65 171 / 0.12);
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.35rem;
-            letter-spacing: -0.02em;
-            color: var(--primary);
-        }
-
-        .logo img {
-            height: 42px;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--gray-800);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            padding: 0.625rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.25s;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray-800);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 9rem 0 6rem;
-            background: linear-gradient(135deg, #f0f4fd 0%, #e1eafb 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 60%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(6,65,171,0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content p {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-            margin-bottom: 2rem;
-            max-width: 90%;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-xl);
-            transition: transform 0.5s ease;
-            border: 1px solid var(--gray-200);
-            background: #ffffff;
-        }
-
-        .hero-image:hover img {
-            transform: scale(1.02);
-        }
-
-        /* Illustrations */
-        .hero-image svg { width: 100%; height: auto; display: block; border-radius: 1.5rem; box-shadow: var(--shadow-xl); }
-        .service-image svg { width: 100%; height: 100%; display: block; transition: transform 0.4s; }
-        .service-card:hover .service-image svg { transform: scale(1.05); }
-        .about-image svg { width: 100%; height: auto; display: block; border-radius: 1rem; box-shadow: var(--shadow-lg); }
-        @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-        .bob-a { animation: bob 6s ease-in-out infinite; }
-        .bob-b { animation: bob 7s ease-in-out -2s infinite; }
-        .bob-c { animation: bob 5.5s ease-in-out -4s infinite; }
-        @media (prefers-reduced-motion: reduce) { .bob-a, .bob-b, .bob-c { animation: none; } }
-
-        /* Section Styles */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-dark {
-            background: var(--gray-50);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--gray-600);
-            font-size: 1.1rem;
-        }
-
-        /* Feature Cards */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--gray-200);
-            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-            background: rgba(6, 65, 171, 0.08);
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-icon i {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--primary-dark);
-        }
-
-        .feature-card p {
-            color: var(--gray-600);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--gray-200);
-            transition: all 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--primary);
-        }
-
-        .service-image {
-            height: 220px;
-            overflow: hidden;
-            background: #f1f5f9;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-
-        .service-card:hover .service-image img {
-            transform: scale(1.05);
-        }
-
-        .service-content {
-            padding: 1.75rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--primary-dark);
-        }
-
-        .service-features {
-            list-style: none;
-            margin: 1rem 0 1.5rem;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--gray-600);
-        }
-
-        .service-features i {
-            color: var(--primary);
-            font-size: 0.8rem;
-        }
-
-        .wa-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #0641ab;
-            color: white;
-            padding: 0.6rem 1.25rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-
-        .wa-link:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Upcoming Project Highlight (Schoolbucks) */
-        .project-highlight {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: white;
-            border-radius: 1.5rem;
-            padding: 4rem 3rem;
-            margin: 4rem 0;
-            box-shadow: var(--shadow-xl);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-highlight::after {
-            content: '';
-            position: absolute;
-            right: -10%;
-            bottom: -30%;
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .project-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 0.35rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-
-        .project-content h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .project-content p {
-            color: #e2e8f0;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .project-features-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .project-features-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #f8fafc;
-        }
-
-        .project-features-list i {
-            color: #93c5fd;
-        }
-
-        .project-logo-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 1rem;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .project-logo-card img {
-            height: 90px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .project-logo-card span {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            letter-spacing: -0.02em;
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            color: var(--gray-600);
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
-        }
-
-        .contact-details {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--gray-200);
-        }
-
-        .contact-details p {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
-            color: var(--gray-800);
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--gray-200);
-            background: white;
-        }
-
-        /* Pricing */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid var(--gray-200);
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
-            transform: scale(1.02);
-            box-shadow: var(--shadow-md);
-        }
-
-        .popular-tag {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: 0.25rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
-
-        .pricing-card h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .price span {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--gray-600);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .pricing-features li {
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--gray-600);
-        }
-
-        .pricing-features i {
-            color: var(--primary);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: #E2E8F0;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h4 {
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 1.25rem;
-            font-weight: 600;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.6rem;
-        }
-
-        .footer-col a {
-            color: #94A3B8;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 38px;
-            height: 38px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            color: white;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.8rem;
-            color: #94A3B8;
-        }
-
-        /* Animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 900px) {
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-            .project-features-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-            .hero-grid, .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 1.5rem;
-                gap: 1rem;
-                box-shadow: var(--shadow-md);
-                border-bottom: 1px solid var(--gray-200);
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .mobile-menu {
-                display: block;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electrify Technologies | Spark Point of Sale &amp; Software Solutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--p:#0641ab;--pl:#1d55c7;--pd:#042d78;--sky:#e8f0fe;--y:#ffd21f;--g50:#f8fafc;--g200:#e2e8f0;--g600:#475569;--g800:#1e293b;--sh:0 20px 40px -12px rgba(6,65,171,.25)}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;color:#111827;line-height:1.55;overflow-x:hidden;background:#fff}
+a{text-decoration:none}
+.container{max-width:1240px;margin:0 auto;padding:0 1.5rem}
+/* header */
+header{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid var(--g200)}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+.logo{display:flex;align-items:center;gap:.7rem;font-weight:800;font-size:1.25rem;color:var(--p);letter-spacing:-.02em}
+.logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--g800);font-weight:500;font-size:.95rem;transition:color .2s}
+.nav-links a:hover{color:var(--p)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--p);color:#fff!important;padding:.75rem 1.6rem;border-radius:999px;font-weight:700;font-size:.95rem;border:2px solid var(--p);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(6,65,171,.3);background:var(--pd)}
+.btn.out{background:transparent;color:var(--p)!important}
+.btn.out:hover{background:var(--p);color:#fff!important}
+.btn.yel{background:var(--y);border-color:var(--y);color:var(--pd)!important}
+.btn.yel:hover{background:#ffe066}
+.btn.wh{background:#fff;border-color:#fff;color:var(--p)!important}
+.mobile-menu{display:none;font-size:1.5rem;cursor:pointer}
+/* hero */
+.hero{padding:8.5rem 0 5rem;background:linear-gradient(135deg,#eaf1ff,#cfe0fb 60%,#b9d2f8);position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(10px);opacity:.5;animation:drift 12s ease-in-out infinite}
+.b1{width:380px;height:380px;background:#fff;top:-120px;right:-80px}
+.b2{width:260px;height:260px;background:var(--y);bottom:-100px;left:-60px;opacity:.35;animation-delay:-5s}
+@keyframes drift{50%{transform:translate(30px,30px) scale(1.08)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;position:relative;z-index:1}
+.pill{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--p);font-weight:700;font-size:.85rem;padding:.4rem 1rem;border-radius:999px;box-shadow:0 4px 12px rgba(6,65,171,.12);margin-bottom:1.25rem}
+.pill i{color:var(--y);text-shadow:0 0 1px #b88f00}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;color:var(--pd);margin-bottom:1.25rem}
+.type{color:var(--p);border-right:3px solid var(--p);padding-right:4px;animation:blink .8s step-end infinite}
+@keyframes blink{50%{border-color:transparent}}
+.hero p{font-size:1.15rem;color:var(--g600);margin-bottom:2rem;max-width:34rem}
+.btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-img{position:relative;display:flex;justify-content:center}
+.hero-img img{width:100%;max-width:470px;border-radius:1.25rem;box-shadow:var(--sh);transform:rotate(2.5deg);transition:transform .5s;animation:float 6s ease-in-out infinite;border:6px solid #fff}
+.hero-img:hover img{transform:rotate(0) scale(1.03)}
+@keyframes float{50%{translate:0 -14px}}
+.chip{position:absolute;background:#fff;border-radius:14px;padding:.6rem .95rem;font-weight:700;font-size:.82rem;box-shadow:0 10px 25px rgba(6,65,171,.2);display:flex;align-items:center;gap:.5rem;color:var(--pd);animation:float 5s ease-in-out infinite}
+.chip i{color:var(--p)}
+.c1{top:8%;left:-2%}.c2{bottom:22%;right:-3%;animation-delay:-2s}.c3{bottom:4%;left:4%;animation-delay:-3.5s}
+/* ticker */
+.ticker{background:var(--pd);color:#fff;overflow:hidden;white-space:nowrap;padding:.9rem 0}
+.track{display:inline-block;animation:scroll 32s linear infinite}
+.ticker span{margin:0 1.6rem;font-weight:600;font-size:.95rem}
+.ticker i{color:var(--y);margin-right:.5rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* sections */
+.section{padding:5.5rem 0}
+.alt{background:var(--g50)}
+.head{text-align:center;max-width:720px;margin:0 auto 3rem}
+.head h2{font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-.025em;color:var(--pd);margin-bottom:.8rem}
+.head p{color:var(--g600);font-size:1.1rem}
+/* spark */
+.spark-top{display:grid;grid-template-columns:.9fr 1.1fr;gap:3.5rem;align-items:center;margin-bottom:4rem}
+.poster{position:relative}
+.poster img{width:100%;border-radius:1.25rem;box-shadow:var(--sh);transition:transform .4s}
+.poster:hover img{transform:scale(1.02) rotate(-1deg)}
+.zim{display:flex;gap:1.1rem;align-items:center;background:linear-gradient(135deg,var(--pd),var(--p));color:#fff;border-radius:1.25rem;padding:1.4rem 1.6rem;margin-bottom:1.5rem}
+.zim i{font-size:2.4rem;color:var(--y)}
+.zim h3{font-size:1.2rem;margin-bottom:.2rem}
+.zim p{font-size:.95rem;color:#dbe7ff}
+.spark-info h3.t{font-size:1.9rem;font-weight:800;color:var(--pd);letter-spacing:-.02em;margin-bottom:.8rem}
+.spark-info>p{color:var(--g600);margin-bottom:1.5rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem}
+.stat{background:var(--sky);border-radius:1rem;padding:1rem;text-align:center}
+.stat b{display:block;font-size:1.7rem;font-weight:900;color:var(--p)}
+.stat small{color:var(--g600);font-weight:600;font-size:.8rem}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.1rem}
+.f{display:flex;gap:1rem;background:#fff;border:1px solid var(--g200);border-radius:1rem;padding:1.15rem;transition:transform .25s,box-shadow .25s,border-color .25s}
+.f:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:var(--p)}
+.f .ic{flex:none;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--pl),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:transform .3s}
+.f:hover .ic{transform:rotate(-12deg) scale(1.1)}
+.f h4{font-size:1.02rem;font-weight:700;color:var(--pd)}
+.f p{font-size:.88rem;color:var(--g600)}
+/* restaurant */
+.resto{margin-top:4rem;background:linear-gradient(135deg,#fff7d6,#ffe8a3);border-radius:1.75rem;padding:3rem;display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center}
+.resto h3{font-size:2rem;font-weight:800;color:var(--pd);margin-bottom:.6rem;letter-spacing:-.02em}
+.resto>div>p{color:#5b4a00;margin-bottom:1.25rem}
+.ticks{list-style:none;display:grid;gap:.7rem;margin-bottom:1.75rem}
+.ticks li{display:flex;gap:.7rem;align-items:center;font-weight:600;color:var(--pd)}
+.ticks i{color:var(--p);font-size:1.15rem}
+.rcards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.rc{background:#fff;border-radius:1.1rem;padding:1.3rem;text-align:center;box-shadow:0 8px 20px rgba(120,90,0,.15);font-weight:700;color:var(--pd);font-size:.9rem}
+.rc i{display:block;font-size:1.9rem;color:var(--p);margin-bottom:.5rem}
+.rc:nth-child(2){transform:translateY(18px)}.rc:nth-child(4){transform:translateY(18px)}
+.why{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:3rem}
+.why div{display:flex;align-items:center;gap:.6rem;background:var(--sky);color:var(--pd);font-weight:700;padding:.7rem 1.3rem;border-radius:999px}
+.cta{margin-top:3rem;background:var(--pd);border-radius:1.75rem;padding:2.6rem;text-align:center;color:#fff}
+.cta h3{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;margin-bottom:.5rem}
+.cta h3 em{color:var(--y);font-style:normal}
+.cta p{color:#c7d8fb;margin-bottom:1.5rem}
+/* schoolbucks */
+.sb{background:linear-gradient(135deg,var(--pd),var(--p));color:#fff;border-radius:1.75rem;padding:3.5rem;display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;position:relative;overflow:hidden}
+.sb::after{content:'';position:absolute;right:-8%;bottom:-35%;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.05)}
+.badge{display:inline-block;background:rgba(255,255,255,.18);padding:.35rem 1rem;border-radius:999px;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+.sb h2{font-size:2.5rem;font-weight:900;margin-bottom:1rem}
+.sb p{color:#e2e8f0;margin-bottom:1.5rem}
+.sb ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:2rem;font-size:.92rem}
+.sb li i{color:#93c5fd;margin-right:.4rem}
+.sblogo{background:#fff;border-radius:1.25rem;padding:2.5rem;text-align:center;z-index:1;animation:float 6s ease-in-out infinite}
+.sblogo img{height:90px;width:auto;margin-bottom:1rem}
+.sblogo span{display:block;font-weight:800;font-size:1.5rem;color:var(--p)}
+/* services */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.sv{background:#fff;border:1px solid var(--g200);border-radius:1.25rem;padding:2rem;transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column}
+.sv:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:var(--p)}
+.sv .big{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--pl),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:1.2rem}
+.sv h3{font-size:1.3rem;font-weight:700;color:var(--pd);margin-bottom:.8rem}
+.sv ul{list-style:none;margin-bottom:1.5rem;flex:1}
+.sv li{font-size:.92rem;color:var(--g600);margin-bottom:.5rem;display:flex;gap:.5rem;align-items:center}
+.sv li i{color:var(--p);font-size:.8rem}
+.sv .btn{align-self:flex-start;padding:.55rem 1.2rem;font-size:.85rem}
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about h2{font-size:2.3rem;font-weight:800;color:var(--pd);margin-bottom:1.2rem}
+.about p{color:var(--g600);margin-bottom:1.1rem}
+.contact{margin:1.5rem 0;padding-top:1rem;border-top:1px solid var(--g200)}
+.contact p{display:flex;gap:.7rem;align-items:center;color:var(--g800);margin-bottom:.6rem}
+.contact i{color:var(--p)}
+.hub{background:linear-gradient(135deg,#4fa8ee,#2a7fd4);border-radius:1.5rem;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;box-shadow:var(--sh)}
+.hub div{background:#fff;border-radius:1.1rem;padding:1.4rem;text-align:center;font-weight:700;color:var(--pd);font-size:.95rem}
+.hub i{display:block;font-size:2rem;color:var(--p);margin-bottom:.5rem}
+/* footer */
+footer{background:var(--pd);color:#e2e8f0;padding:4rem 0 2rem}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2.5rem;margin-bottom:3rem}
+.fg h4{color:#fff;margin-bottom:1.1rem}
+.fg ul{list-style:none}.fg li{margin-bottom:.6rem;font-size:.88rem}
+.fg a{color:#a9bde6;transition:color .2s}.fg a:hover{color:#fff}
+.soc a{display:inline-flex;width:38px;height:38px;border-radius:.6rem;background:rgba(255,255,255,.1);align-items:center;justify-content:center;color:#fff;margin-right:.6rem;transition:background .2s}
+.soc a:hover{background:var(--p)}
+.copy{text-align:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:#a9bde6}
+.wa-float{position:fixed;right:1.25rem;bottom:1.25rem;z-index:999;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;font-size:1.9rem;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.25);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+:focus-visible{outline:3px solid var(--y);outline-offset:3px}
+@media(max-width:900px){.hero-grid,.spark-top,.resto,.sb,.about{grid-template-columns:1fr}.sb{padding:2.25rem}.sb ul{grid-template-columns:1fr}.resto{padding:2rem}.hero-img{margin-top:1rem}.c1{left:0}.c2{right:0}}
+@media(max-width:768px){
+.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:#fff;flex-direction:column;padding:1.5rem;gap:1rem;border-bottom:1px solid var(--g200)}
+.nav-links.active{display:flex}.mobile-menu{display:block}.section{padding:4rem 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4fa8ee"/><stop offset="1" stop-color="#2a7fd4"/></linearGradient></defs></svg>
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    <img src="log.png" alt="Electrify Technologies" onerror="this.src='https://placehold.co/42x42/0641ab/white?text=E'">
-                    <span>Electrify Technologies</span>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#spark-pos">Spark POS</a></li>
-                    <li><a href="#schoolbucks">Schoolbucks</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27m%20interested%20in%20your%20software%20solutions" target="_blank" class="btn-primary" style="padding: 0.5rem 1.25rem;">Get Started</a></li>
-                </ul>
-                <div class="mobile-menu"><i class="fas fa-bars"></i></div>
-            </nav>
-        </div>
-    </header>
+<header>
+<div class="container"><nav class="navbar">
+<a href="#" class="logo"><img src="log.png" alt="Electrify Technologies" onerror="this.src='https://placehold.co/42x42/0641ab/white?text=E'"><span>Electrify Technologies</span></a>
+<ul class="nav-links">
+<li><a href="#spark-pos">Spark POS</a></li>
+<li><a href="#schoolbucks">Schoolbucks</a></li>
+<li><a href="#solutions">Solutions</a></li>
+<li><a href="#about">About</a></li>
+<li><a class="btn" style="padding:.55rem 1.3rem" href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27m%20interested%20in%20your%20software%20solutions" target="_blank">Get Started</a></li>
+</ul>
+<div class="mobile-menu" aria-label="Menu"><i class="fas fa-bars"></i></div>
+</nav></div>
+</header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content animate-on-scroll">
-                    <h1>Enterprise Software Solutions & Digital Infrastructure</h1>
-                    <p>Electrify Technologies delivers intelligent enterprise software applications, advanced POS ecosystems, and scalable automation tools designed to optimize operational efficiency.</p>
-                    <div class="hero-buttons">
-                        <a href="#spark-pos" class="btn-primary">Explore Spark POS <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://wa.me/263719618527?text=I%27d%20like%20to%20learn%20more%20about%20Electrify%20Technologies%20solutions" target="_blank" class="btn-primary btn-outline">Contact Sales</a>
-                    </div>
-                </div>
-                <div class="hero-image animate-on-scroll"><svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a computer showing a code editor, an image editor and a developer window"><defs><pattern id="keys" width="16" height="11" patternUnits="userSpaceOnUse"><rect x="1.5" y="1.5" width="13" height="8" rx="2" fill="#eef3fa"/></pattern></defs><rect width="640" height="480" fill="url(#bg)"/><ellipse cx="320" cy="445" rx="270" ry="22" fill="#0a4aa3" opacity=".18"/><g transform="translate(62 337)"><ellipse cx="0" cy="54" rx="30" ry="6" fill="#0a4aa3" opacity=".25"/><g><ellipse cx="0" cy="-20" rx="7" ry="22" fill="#6c63f0" transform="rotate(-30)"/><ellipse cx="0" cy="-26" rx="7" ry="26" fill="#8a7cf5"/><ellipse cx="0" cy="-20" rx="7" ry="22" fill="#4b8df0" transform="rotate(30)"/></g><rect x="-22" y="0" width="44" height="52" rx="14" fill="#a9e0e8"/><ellipse cx="0" cy="2" rx="22" ry="6" fill="#7cc4d2"/></g><rect x="138" y="74" width="380" height="290" rx="22" fill="#073f8c"/><rect x="130" y="66" width="380" height="290" rx="22" fill="#0d58b9"/><rect x="290" y="356" width="60" height="36" fill="#0a4aa3"/><rect x="250" y="388" width="140" height="14" rx="7" fill="#073f8c"/><g class="bob-a"><rect x="108" y="100" width="210" height="232" rx="14" fill="#0a4aa3"/><rect x="100" y="92" width="210" height="232" rx="14" fill="#1b74d1"/><circle cx="114" cy="106" r="3.5" fill="#f4a340"/><circle cx="125" cy="106" r="3.5" fill="#e5484d"/><circle cx="136" cy="106" r="3.5" fill="#3ecf8e"/><rect x="118" y="134" width="70" height="7" rx="3.5" fill="#2ec4b6"/><rect x="194" y="134" width="24" height="7" rx="3.5" fill="#a9d6f2"/><rect x="224" y="134" width="40" height="7" rx="3.5" fill="#a9d6f2"/><rect x="118" y="151" width="50" height="7" rx="3.5" fill="#ef8a5d"/><rect x="174" y="151" width="60" height="7" rx="3.5" fill="#a9d6f2"/><rect x="118" y="168" width="22" height="7" rx="3.5" fill="#2ec4b6"/><rect x="146" y="168" width="60" height="7" rx="3.5" fill="#a9d6f2"/><rect x="212" y="168" width="18" height="7" rx="3.5" fill="#a9d6f2"/><rect x="118" y="185" width="34" height="7" rx="3.5" fill="#f4c542"/><rect x="158" y="185" width="70" height="7" rx="3.5" fill="#f4c542"/><rect x="118" y="202" width="46" height="7" rx="3.5" fill="#a9d6f2"/><rect x="170" y="202" width="30" height="7" rx="3.5" fill="#0a4aa3"/><rect x="206" y="202" width="40" height="7" rx="3.5" fill="#a9d6f2"/><rect x="118" y="219" width="80" height="7" rx="3.5" fill="#2ec4b6"/><rect x="204" y="219" width="24" height="7" rx="3.5" fill="#ef8a5d"/><rect x="118" y="236" width="28" height="7" rx="3.5" fill="#f4c542"/><rect x="152" y="236" width="64" height="7" rx="3.5" fill="#a9d6f2"/><rect x="118" y="253" width="56" height="7" rx="3.5" fill="#ef8a5d"/><rect x="180" y="253" width="40" height="7" rx="3.5" fill="#2ec4b6"/><rect x="226" y="253" width="20" height="7" rx="3.5" fill="#0a4aa3"/><rect x="118" y="270" width="70" height="7" rx="3.5" fill="#a9d6f2"/><rect x="194" y="270" width="30" height="7" rx="3.5" fill="#f4c542"/><rect x="118" y="287" width="40" height="7" rx="3.5" fill="#2ec4b6"/><rect x="164" y="287" width="60" height="7" rx="3.5" fill="#a9d6f2"/><rect x="118" y="304" width="60" height="7" rx="3.5" fill="#f4c542"/><rect x="184" y="304" width="30" height="7" rx="3.5" fill="#ef8a5d"/></g><g class="bob-b"><rect x="340" y="80" width="140" height="192" rx="14" fill="#0a4aa3"/><rect x="332" y="72" width="140" height="192" rx="14" fill="#1b74d1"/><circle cx="346" cy="86" r="3.5" fill="#f4a340"/><circle cx="357" cy="86" r="3.5" fill="#e5484d"/><circle cx="368" cy="86" r="3.5" fill="#3ecf8e"/><path d="M352 196L384 150L416 196Z" fill="#eef3fa" stroke="#eef3fa" stroke-width="8" stroke-linejoin="round"/><path d="M400 196L426 162L452 196Z" fill="#f4c542" stroke="#f4c542" stroke-width="8" stroke-linejoin="round"/><circle cx="440" cy="118" r="14" fill="#f19cc4"/><rect x="350" y="214" width="60" height="6" rx="3.0" fill="#2ec4b6"/><rect x="416" y="214" width="40" height="6" rx="3.0" fill="#a9d6f2"/><rect x="350" y="227" width="90" height="6" rx="3.0" fill="#a9d6f2"/><rect x="350" y="240" width="70" height="6" rx="3.0" fill="#f4c542"/></g><g class="bob-c"><rect x="308" y="278" width="190" height="96" rx="14" fill="#0a4aa3"/><rect x="300" y="270" width="190" height="96" rx="14" fill="#1b74d1"/><circle cx="314" cy="284" r="3.5" fill="#f4a340"/><circle cx="325" cy="284" r="3.5" fill="#e5484d"/><circle cx="336" cy="284" r="3.5" fill="#3ecf8e"/><rect x="318" y="306" width="80" height="7" rx="3.5" fill="#a9d6f2"/><rect x="318" y="319" width="56" height="7" rx="3.5" fill="#a9d6f2"/><rect x="428" y="294" width="44" height="44" rx="11" fill="#eef3fa"/><g fill="none" stroke="#2a5a9a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M444 308L437 316L444 324M454 306L446 326M456 308L463 316L456 324"/></g></g><g transform="translate(100 415) skewX(-40)"><rect y="5" width="95" height="44" rx="6" fill="#073f8c"/><rect width="95" height="44" rx="6" fill="#0d58b9"/></g><g transform="translate(205 415) skewX(-40)"><rect y="5" width="230" height="46" rx="6" fill="#073f8c"/><rect width="230" height="46" rx="6" fill="#1b74d1"/><rect x="8" y="7" width="208" height="33" fill="url(#keys)"/></g><g transform="translate(490 418) skewX(-40)"><rect y="5" width="50" height="36" rx="12" fill="#073f8c"/><rect width="50" height="36" rx="12" fill="#0d58b9"/></g></svg></div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+<div class="blob b1"></div><div class="blob b2"></div>
+<div class="container"><div class="hero-grid">
+<div>
+<span class="pill"><i class="fas fa-bolt"></i> The Power of Imagination</span>
+<h1>Run your business <span class="type" id="type">smarter.</span></h1>
+<p>Spark Point of Sale puts sales, stock and accounting in one system. It is ZIMRA fiscalisation ready, works offline and suits shops, supermarkets, boutiques and restaurants.</p>
+<div class="btns">
+<a href="#spark-pos" class="btn yel"><i class="fas fa-bolt"></i> Explore Spark POS</a>
+<a href="https://wa.me/263719618527?text=Hello%2C%20I%27d%20like%20a%20demo%20of%20Spark%20POS" target="_blank" class="btn out"><i class="fab fa-whatsapp"></i> Book a Demo</a>
+</div>
+</div>
+<div class="hero-img">
+<img src="spark-poster.png" alt="Spark Point of Sale poster showing the POS screen, receipt printer and restaurant tools">
+<div class="chip c1"><i class="fas fa-shield-halved"></i> ZIMRA Fiscalisation</div>
+<div class="chip c2"><i class="fas fa-wifi"></i> Works Offline</div>
+<div class="chip c3"><i class="fas fa-cloud"></i> Cloud Sync</div>
+</div>
+</div></div>
+</section>
 
-    <section id="spark-pos" class="section">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Spark Point of Sale</h2>
-                <p>A comprehensive retail management ecosystem engineered for modern commerce operations.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                    <h3>Offline-First Architecture</h3>
-                    <p>Continue processing transactions without internet connectivity. Automatic synchronization occurs seamlessly when connection is restored.</p>
-                </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Real-Time Analytics</h3>
-                    <p>Monitor profit margins, inventory velocity, and cash flow with dynamic analytics dashboards and exportable financial reports.</p>
-                </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-users"></i></div>
-                    <h3>Role-Based Access</h3>
-                    <p>Granular permission configurations for staff, managers, and administrators backed by comprehensive audit logging.</p>
-                </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-gem"></i></div>
-                    <h3>Loyalty Engine</h3>
-                    <p>Build customer retention using structured points, membership tiers, and automated reward rules that drive repeat business.</p>
-                </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-store"></i></div>
-                    <h3>Multi-Branch Management</h3>
-                    <p>Centralized control across multiple locations with consolidated reporting systems and seamless inter-branch transfers.</p>
-                </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
-                    <h3>Financial Intelligence</h3>
-                    <p>Gross profit evaluation, expense tracking, and comprehensive profit and loss statements generated automatically.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="ticker" aria-hidden="true"><div class="track" id="track">
+<span><i class="fas fa-bolt"></i>Fast &amp; Easy POS</span><span><i class="fas fa-bolt"></i>Inventory Management</span><span><i class="fas fa-bolt"></i>Financial Reports</span><span><i class="fas fa-bolt"></i>ZIMRA Fiscalisation</span><span><i class="fas fa-bolt"></i>Offline Mode</span><span><i class="fas fa-bolt"></i>Online Ordering</span><span><i class="fas fa-bolt"></i>Live Driver Tracking</span><span><i class="fas fa-bolt"></i>Cloud Synchronisation</span>
+</div></div>
 
-    <!-- Upcoming Project: Schoolbucks -->
-    <section id="schoolbucks" class="container">
-        <div class="project-highlight animate-on-scroll">
-            <div class="project-grid">
-                <div class="project-content">
-                    <span class="project-badge">Upcoming Project</span>
-                    <h2>Schoolbucks</h2>
-                    <p>Schoolbucks is a rewards platform currently in development, focused on users in South Africa and Zimbabwe. The platform will allow members to complete offers from partner networks and earn rewards for qualifying activity, with the goal of offering flexible payout options such as mobile money and bank transfer upon launch. The system is being built with an emphasis on user verification, reward transparency, and account security.</p>
-                    <ul class="project-features-list">
-                        <li><i class="fas fa-check-circle"></i> Offer-Based Rewards</li>
-                        <li><i class="fas fa-check-circle"></i> Wallet & Balance Tracking</li>
-                        <li><i class="fas fa-check-circle"></i> Mobile Money & Bank Payouts</li>
-                        <li><i class="fas fa-check-circle"></i> Referral Programme</li>
-                        <li><i class="fas fa-check-circle"></i> Email Verification</li>
-                        <li><i class="fas fa-check-circle"></i> Fraud Monitoring</li>
-                    </ul>
-                    <a href="https://wa.me/263719618527?text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20the%20upcoming%20Schoolbucks%20platform" target="_blank" class="btn-primary" style="background: white; color: var(--primary);">Inquire About Schoolbucks</a>
-                </div>
-                <div class="project-logo-card">
-                    <img src="sb.png" alt="Schoolbucks Logo" onerror="this.src='https://placehold.co/120x120/0641ab/white?text=SB'">
-                    <span>Schoolbucks</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="spark-pos" class="section">
+<div class="container">
+<div class="head rv"><h2>Spark Point of Sale</h2><p>Sales. Stock. Accounting. All in one system.</p></div>
 
-    <section id="solutions" class="section section-dark">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Enterprise Solutions Portfolio</h2>
-                <p>Comprehensive digital infrastructure for forward-thinking organizations.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <!-- 3D HR & User Management Dashboard Illustration -->
-                    <div class="service-image"><svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a staff ID card with face scan and a payroll chart" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="url(#bg)"/><rect x="58" y="42" width="180" height="136" rx="14" fill="#0a4aa3"/><rect x="50" y="34" width="180" height="136" rx="14" fill="#1b74d1"/><circle cx="64" cy="48" r="3.5" fill="#f4a340"/><circle cx="75" cy="48" r="3.5" fill="#e5484d"/><circle cx="86" cy="48" r="3.5" fill="#3ecf8e"/><circle cx="111" cy="94" r="16" fill="#eef3fa"/><path d="M88 134a23 23 0 0 1 46 0z" fill="#eef3fa"/><path d="M82 80V66H96M126 66H140V80M140 124V138H126M96 138H82V124" fill="none" stroke="#f4c542" stroke-width="3" stroke-linecap="round"/><rect x="154" y="74" width="56" height="7" rx="3.5" fill="#a9d6f2"/><rect x="154" y="90" width="40" height="7" rx="3.5" fill="#a9d6f2"/><rect x="154" y="106" width="48" height="7" rx="3.5" fill="#a9d6f2"/><rect x="222" y="104" width="140" height="98" rx="14" fill="#0a4aa3"/><rect x="214" y="96" width="140" height="98" rx="14" fill="#1b74d1"/><circle cx="228" cy="110" r="3.5" fill="#f4a340"/><circle cx="239" cy="110" r="3.5" fill="#e5484d"/><circle cx="250" cy="110" r="3.5" fill="#3ecf8e"/><rect x="234" y="154" width="14" height="24" rx="4" fill="#2ec4b6"/><rect x="256" y="138" width="14" height="40" rx="4" fill="#f4c542"/><rect x="278" y="124" width="14" height="54" rx="4" fill="#a9d6f2"/><circle cx="326" cy="140" r="17" fill="#f4c542"/><path d="M318 140l6 6 11-12" fill="none" stroke="#0a4aa3" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                    <div class="service-content">
-                        <h3>Ultimate HR Management</h3>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> Facial Recognition Attendance</li>
-                            <li><i class="fas fa-check-circle"></i> Automated Payroll Integration</li>
-                            <li><i class="fas fa-check-circle"></i> Employee Records & Performance</li>
-                        </ul>
-                        <a href="https://wa.me/263719618527?text=Hello%2C%20I%27m%20interested%20in%20the%20Ultimate%20HR%20Management%20System%20with%20facial%20recognition" target="_blank" class="wa-link">Request Consultation</a>
-                    </div>
-                </div>
-                <div class="service-card animate-on-scroll">
-                    <!-- 3D Chatbot / WhatsApp Automation Illustration -->
-                    <div class="service-image"><svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of chat bubbles with a friendly bot" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="url(#bg)"/><rect x="50" y="40" width="160" height="48" rx="16" fill="#eef3fa"/><path d="M70 88l-6 14 20-14z" fill="#eef3fa"/><rect x="68" y="56" width="96" height="7" rx="3.5" fill="#a9d6f2"/><rect x="68" y="70" width="60" height="7" rx="3.5" fill="#a9d6f2"/><rect x="174" y="104" width="176" height="58" rx="16" fill="#0a4aa3"/><path d="M330 162l8 14-22-14z" fill="#0a4aa3"/><rect x="192" y="120" width="70" height="7" rx="3.5" fill="#2ec4b6"/><rect x="268" y="120" width="30" height="7" rx="3.5" fill="#f4c542"/><rect x="192" y="135" width="90" height="7" rx="3.5" fill="#a9d6f2"/><circle cx="330" cy="60" r="24" fill="#eef3fa"/><circle cx="321" cy="62" r="3.5" fill="#0a4aa3"/><circle cx="339" cy="62" r="3.5" fill="#0a4aa3"/><path d="M323 71q7 5 14 0" fill="none" stroke="#0a4aa3" stroke-width="2.5" stroke-linecap="round"/><path d="M330 36v-8" stroke="#eef3fa" stroke-width="3"/><circle cx="330" cy="26" r="4.5" fill="#f4c542"/><rect x="60" y="134" width="72" height="34" rx="17" fill="#eef3fa"/><circle cx="82" cy="151" r="4.5" fill="#a9d6f2"/><circle cx="96" cy="151" r="4.5" fill="#2ec4b6"/><circle cx="110" cy="151" r="4.5" fill="#0a4aa3"/></svg></div>
-                    <div class="service-content">
-                        <h3>WhatsApp Business Automation</h3>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> 24/7 Intelligent Chatbot Flows</li>
-                            <li><i class="fas fa-check-circle"></i> Product Catalog Integration</li>
-                            <li><i class="fas fa-check-circle"></i> Lead Generation & Sales Funnels</li>
-                        </ul>
-                        <a href="https://wa.me/263719618527?text=I%20need%20a%20WhatsApp%20chatbot%20system%20for%20automated%20customer%20support" target="_blank" class="wa-link">Deploy Chatbot</a>
-                    </div>
-                </div>
-                <div class="service-card animate-on-scroll">
-                    <!-- 3D Web Design & Wireframe Illustration -->
-                    <div class="service-image"><svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a website layout in a browser window" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="url(#bg)"/><rect x="68" y="38" width="280" height="160" rx="14" fill="#0a4aa3"/><rect x="60" y="30" width="280" height="160" rx="14" fill="#1b74d1"/><circle cx="74" cy="44" r="3.5" fill="#f4a340"/><circle cx="85" cy="44" r="3.5" fill="#e5484d"/><circle cx="96" cy="44" r="3.5" fill="#3ecf8e"/><rect x="78" y="62" width="110" height="8" rx="4.0" fill="#a9d6f2"/><rect x="78" y="76" width="80" height="8" rx="4.0" fill="#a9d6f2"/><rect x="78" y="98" width="52" height="16" rx="8" fill="#f4c542"/><rect x="228" y="56" width="96" height="62" rx="10" fill="#0a4aa3"/><path d="M240 110L262 80L284 110zM268 110L288 90L308 110z" fill="#eef3fa"/><path d="M268 110L288 90L308 110z" fill="#f4c542"/><circle cx="306" cy="72" r="7" fill="#f19cc4"/><rect x="78" y="132" width="64" height="40" rx="8" fill="#3c90e4"/><rect x="88" y="144" width="30" height="6" rx="3" fill="#eef3fa"/><rect x="88" y="156" width="20" height="6" rx="3" fill="#2ec4b6"/><rect x="154" y="132" width="64" height="40" rx="8" fill="#3c90e4"/><rect x="164" y="144" width="30" height="6" rx="3" fill="#eef3fa"/><rect x="164" y="156" width="20" height="6" rx="3" fill="#2ec4b6"/><rect x="230" y="132" width="64" height="40" rx="8" fill="#3c90e4"/><rect x="240" y="144" width="30" height="6" rx="3" fill="#eef3fa"/><rect x="240" y="156" width="20" height="6" rx="3" fill="#2ec4b6"/><path d="M296 146v28l7-6 5 12 5-2-5-12h9z" fill="#eef3fa" stroke="#0a4aa3" stroke-width="2" stroke-linejoin="round"/></svg></div>
-                    <div class="service-content">
-                        <h3>Web Design & Development</h3>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> Responsive & Modern Architecture</li>
-                            <li><i class="fas fa-check-circle"></i> SEO-Optimized Frameworks</li>
-                            <li><i class="fas fa-check-circle"></i> E-Commerce & CMS Platforms</li>
-                        </ul>
-                        <a href="https://wa.me/263719618527?text=I%20want%20to%20discuss%20a%20professional%20website%20for%20my%20business" target="_blank" class="wa-link">Start a Project</a>
-                    </div>
-                </div>
-                <div class="service-card animate-on-scroll">
-                    <!-- 3D Code Syntax & Software Architecture Illustration -->
-                    <div class="service-image"><svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a code window with gears" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="url(#bg)"/><rect x="48" y="42" width="190" height="150" rx="14" fill="#0a4aa3"/><rect x="40" y="34" width="190" height="150" rx="14" fill="#1b74d1"/><circle cx="54" cy="48" r="3.5" fill="#f4a340"/><circle cx="65" cy="48" r="3.5" fill="#e5484d"/><circle cx="76" cy="48" r="3.5" fill="#3ecf8e"/><rect x="58" y="74" width="60" height="8" rx="4.0" fill="#2ec4b6"/><rect x="124" y="74" width="30" height="8" rx="4.0" fill="#a9d6f2"/><rect x="58" y="91" width="40" height="8" rx="4.0" fill="#ef8a5d"/><rect x="104" y="91" width="70" height="8" rx="4.0" fill="#a9d6f2"/><rect x="58" y="108" width="24" height="8" rx="4.0" fill="#f4c542"/><rect x="88" y="108" width="50" height="8" rx="4.0" fill="#a9d6f2"/><rect x="144" y="108" width="20" height="8" rx="4.0" fill="#a9d6f2"/><rect x="58" y="125" width="70" height="8" rx="4.0" fill="#a9d6f2"/><rect x="134" y="125" width="36" height="8" rx="4.0" fill="#2ec4b6"/><rect x="58" y="142" width="30" height="8" rx="4.0" fill="#ef8a5d"/><rect x="94" y="142" width="60" height="8" rx="4.0" fill="#f4c542"/><rect x="58" y="159" width="50" height="8" rx="4.0" fill="#2ec4b6"/><rect x="114" y="159" width="40" height="8" rx="4.0" fill="#a9d6f2"/><circle cx="298" cy="98" r="32.0" fill="none" stroke="#eef3fa" stroke-width="10" stroke-dasharray="6.28 6.28"/><circle cx="298" cy="98" r="28" fill="#eef3fa"/><circle cx="298" cy="98" r="10.6" fill="#2a7fd4"/><circle cx="340" cy="162" r="16.5" fill="none" stroke="#f4c542" stroke-width="7" stroke-dasharray="4.32 4.32"/><circle cx="340" cy="162" r="14" fill="#f4c542"/><circle cx="340" cy="162" r="5.3" fill="#2a7fd4"/></svg></div>
-                    <div class="service-content">
-                        <h3>Custom Software Development</h3>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> Enterprise Workflow Automation</li>
-                            <li><i class="fas fa-check-circle"></i> Legacy System Modernization</li>
-                            <li><i class="fas fa-check-circle"></i> Scalable Cloud Infrastructure</li>
-                        </ul>
-                        <a href="https://wa.me/263719618527?text=I%20need%20a%20custom%20software%20solution%20tailored%20to%20my%20business%20processes" target="_blank" class="wa-link">Discuss Requirements</a>
-                    </div>
-                </div>
-                <div class="service-card animate-on-scroll">
-                    <!-- 3D Server & Cloud Hosting Graphic -->
-                    <div class="service-image"><svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of servers, a cloud and a dot-com domain" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="url(#bg)"/><rect x="64" y="40" width="190" height="42" rx="10" fill="#0a4aa3"/><rect x="60" y="34" width="190" height="42" rx="10" fill="#1b74d1"/><rect x="80" y="51" width="84" height="8" rx="4" fill="#a9d6f2"/><circle cx="222" cy="55" r="4.5" fill="#2ec4b6"/><circle cx="206" cy="55" r="4.5" fill="#a9d6f2"/><rect x="64" y="90" width="190" height="42" rx="10" fill="#0a4aa3"/><rect x="60" y="84" width="190" height="42" rx="10" fill="#1b74d1"/><rect x="80" y="101" width="84" height="8" rx="4" fill="#a9d6f2"/><circle cx="222" cy="105" r="4.5" fill="#f4c542"/><circle cx="206" cy="105" r="4.5" fill="#a9d6f2"/><rect x="64" y="140" width="190" height="42" rx="10" fill="#0a4aa3"/><rect x="60" y="134" width="190" height="42" rx="10" fill="#1b74d1"/><rect x="80" y="151" width="84" height="8" rx="4" fill="#a9d6f2"/><circle cx="222" cy="155" r="4.5" fill="#2ec4b6"/><circle cx="206" cy="155" r="4.5" fill="#a9d6f2"/><path d="M254 105H290V86M254 155H270" fill="none" stroke="#eef3fa" stroke-width="3" stroke-dasharray="5 6" stroke-linecap="round"/><g fill="#eef3fa"><circle cx="294" cy="64" r="18"/><circle cx="320" cy="50" r="24"/><circle cx="348" cy="62" r="18"/><rect x="294" y="62" width="72" height="20" rx="10"/></g><rect x="270" y="138" width="100" height="34" rx="17" fill="#eef3fa"/><text x="320" y="160" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" fill="#0a4aa3">.com</text></svg></div>
-                    <div class="service-content">
-                        <h3>Hosting & Domain Services</h3>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> Domain Registration: $5/year</li>
-                            <li><i class="fas fa-check-circle"></i> Web Hosting: $5/month or $48/year</li>
-                            <li><i class="fas fa-check-circle"></i> SSL & Daily Backups Included</li>
-                        </ul>
-                        <a href="https://wa.me/263719618527?text=I%20want%20to%20register%20a%20domain%20or%20get%20reliable%20web%20hosting" target="_blank" class="wa-link">Get Hosting</a>
-                    </div>
-                </div>
-                <div class="service-card animate-on-scroll">
-                    <!-- 3D Process & Pipeline Workflow Automation Graphic -->
-                    <div class="service-image"><svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of three connected steps in an automated workflow" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="url(#bg)"/><rect x="38" y="78" width="84" height="64" rx="14" fill="#0a4aa3"/><rect x="30" y="70" width="84" height="64" rx="14" fill="#1b74d1"/><circle cx="44" cy="84" r="3.5" fill="#f4a340"/><circle cx="55" cy="84" r="3.5" fill="#e5484d"/><circle cx="66" cy="84" r="3.5" fill="#3ecf8e"/><rect x="46" y="100" width="44" height="7" rx="3.5" fill="#a9d6f2"/><rect x="46" y="113" width="30" height="7" rx="3.5" fill="#2ec4b6"/><rect x="166" y="78" width="84" height="64" rx="14" fill="#0a4aa3"/><rect x="158" y="70" width="84" height="64" rx="14" fill="#1b74d1"/><circle cx="172" cy="84" r="3.5" fill="#f4a340"/><circle cx="183" cy="84" r="3.5" fill="#e5484d"/><circle cx="194" cy="84" r="3.5" fill="#3ecf8e"/><circle cx="200" cy="112" r="11.0" fill="none" stroke="#eef3fa" stroke-width="6" stroke-dasharray="2.88 2.88"/><circle cx="200" cy="112" r="9" fill="#eef3fa"/><circle cx="200" cy="112" r="3.4" fill="#1b74d1"/><rect x="294" y="78" width="84" height="64" rx="14" fill="#0a4aa3"/><rect x="286" y="70" width="84" height="64" rx="14" fill="#1b74d1"/><circle cx="300" cy="84" r="3.5" fill="#f4a340"/><circle cx="311" cy="84" r="3.5" fill="#e5484d"/><circle cx="322" cy="84" r="3.5" fill="#3ecf8e"/><circle cx="328" cy="112" r="14" fill="#2ec4b6"/><path d="M321 112l5 5 9-10" fill="none" stroke="#eef3fa" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M124 102H150M145 95L152 102L145 109" fill="none" stroke="#eef3fa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M252 102H278M273 95L280 102L273 109" fill="none" stroke="#eef3fa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M72 44H328" stroke="#a9d6f2" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/><circle cx="200" cy="44" r="6" fill="#f4c542"/><rect x="64" y="170" width="272" height="10" rx="5" fill="#0a4aa3"/><rect x="64" y="170" width="190" height="10" rx="5" fill="#2ec4b6"/></svg></div>
-                    <div class="service-content">
-                        <h3>Business Process Automation</h3>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> Operational Digitization</li>
-                            <li><i class="fas fa-check-circle"></i> Enterprise ERP Integration</li>
-                            <li><i class="fas fa-check-circle"></i> Cloud & Hybrid Deployment</li>
-                        </ul>
-                        <a href="https://wa.me/263719618527?text=I%20need%20business%20automation%20to%20streamline%20operations%20and%20reduce%20manual%20work" target="_blank" class="wa-link">Automate Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="spark-top">
+<div class="poster rv"><img src="spark-poster.png" alt="Spark Point of Sale flyer" loading="lazy"></div>
+<div class="spark-info rv">
+<div class="zim"><i class="fas fa-shield-halved"></i><div><h3>ZIMRA Fiscalisation: compliant and ready</h3><p>Stay on the right side of the tax authority without extra hardware headaches.</p></div></div>
+<h3 class="t">Take control of your business today.</h3>
+<p>Whether you run a retail shop, a supermarket, a boutique or a restaurant, Spark gives you one screen for selling, tracking stock, printing receipts and understanding your numbers.</p>
+<div class="stats">
+<div class="stat"><b>11</b><small>Core tools</small></div>
+<div class="stat"><b>100%</b><small>Works offline</small></div>
+<div class="stat"><b>24/7</b><small>Cloud access</small></div>
+</div>
+<div class="btns">
+<a class="btn yel" href="https://wa.me/263719618527?text=I%27d%20like%20to%20start%20with%20Spark%20POS" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+<a class="btn out" href="tel:+263779952384"><i class="fas fa-phone"></i> +263 779 952 384</a>
+</div>
+</div>
+</div>
 
-    <section id="about" class="section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text animate-on-scroll">
-                    <h2>Electrify Technologies</h2>
-                    <p>Electrify Technologies builds robust digital infrastructure that empowers organizations across Africa and beyond, translating enterprise vision into reliable execution.</p>
-                    <p>Our engineering approach merges deep technical proficiency with structured problem-solving. We architect foundational software systems designed for high scalability, optimal performance, and competitive operational advantage.</p>
-                    <div class="contact-details">
-                        <p><i class="fas fa-envelope" style="color: var(--primary);"></i> admin@electrify.co.zw</p>
-                        <p><i class="fas fa-phone-alt" style="color: var(--primary);"></i> +263 787 571 813  |  +263 719 618 527</p>
-                    </div>
-                    <a href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27d%20like%20to%20discuss%20solutions%20for%20my%20business" target="_blank" class="btn-primary" style="margin-top: 1rem;"><i class="fab fa-whatsapp"></i> Connect with Sales</a>
-                </div>
-                <div class="about-image animate-on-scroll"><svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a central software hub connected to point of sale, chat, hosting and people"><rect width="520" height="400" fill="url(#bg)"/><circle cx="260" cy="200" r="130" fill="none" stroke="#eef3fa" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round" opacity=".7"/><path d="M260 144V92M316 200H378M260 256V308M204 200H142" stroke="#eef3fa" stroke-width="4" opacity=".75"/><rect x="230" y="52" width="68" height="68" rx="16" fill="#0a4aa3"/><rect x="226" y="42" width="68" height="68" rx="16" fill="#1b74d1"/><rect x="246" y="60" width="28" height="36" rx="4" fill="#eef3fa"/><rect x="252" y="67" width="16" height="4" rx="2.0" fill="#2ec4b6"/><rect x="252" y="76" width="12" height="4" rx="2.0" fill="#ef8a5d"/><rect x="252" y="85" width="16" height="4" rx="2.0" fill="#f4c542"/><rect x="358" y="176" width="68" height="68" rx="16" fill="#0a4aa3"/><rect x="354" y="166" width="68" height="68" rx="16" fill="#1b74d1"/><rect x="370" y="186" width="36" height="26" rx="9" fill="#eef3fa"/><path d="M378 212l-4 9 12-9z" fill="#eef3fa"/><circle cx="380" cy="199" r="2.8" fill="#0a4aa3"/><circle cx="388" cy="199" r="2.8" fill="#0a4aa3"/><circle cx="396" cy="199" r="2.8" fill="#0a4aa3"/><rect x="230" y="300" width="68" height="68" rx="16" fill="#0a4aa3"/><rect x="226" y="290" width="68" height="68" rx="16" fill="#1b74d1"/><rect x="242" y="306" width="36" height="14" rx="4" fill="#eef3fa"/><rect x="242" y="324" width="36" height="14" rx="4" fill="#eef3fa"/><circle cx="268" cy="313" r="2.8" fill="#2ec4b6"/><circle cx="268" cy="331" r="2.8" fill="#f4c542"/><rect x="102" y="176" width="68" height="68" rx="16" fill="#0a4aa3"/><rect x="98" y="166" width="68" height="68" rx="16" fill="#1b74d1"/><circle cx="132" cy="194" r="9" fill="#eef3fa"/><path d="M116 220a16 16 0 0 1 32 0z" fill="#eef3fa"/><circle cx="260" cy="200" r="58" fill="#eef3fa"/><g fill="none" stroke="#2a5a9a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M246 184L228 200L246 216M268 178L252 222M274 184L292 200L274 216"/></g><circle cx="60" cy="60" r="8" fill="#f4c542"/><circle cx="470" cy="340" r="10" fill="#f19cc4"/><circle cx="450" cy="70" r="6" fill="#2ec4b6"/><circle cx="70" cy="340" r="6" fill="#a9d6f2"/></svg></div>
-            </div>
-        </div>
-    </section>
+<div class="fgrid">
+<div class="f rv"><div class="ic"><i class="fas fa-cart-shopping"></i></div><div><h4>Fast &amp; Easy POS</h4><p>Process sales quickly</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-box"></i></div><div><h4>Inventory Management</h4><p>Track stock levels &amp; movements</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-chart-line"></i></div><div><h4>Sales &amp; Financial Reports</h4><p>Monitor your performance</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-hand-holding-dollar"></i></div><div><h4>Debtors &amp; Creditors</h4><p>Keep track of money owed</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-users"></i></div><div><h4>Customer Management</h4><p>Build lasting relationships</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-print"></i></div><div><h4>Receipt Printing</h4><p>Professional receipts</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-utensils"></i></div><div><h4>Recipe Management</h4><p>Create recipes for advanced stock management &amp; cost analysis</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-wifi"></i></div><div><h4>Offline Mode</h4><p>Keep serving, even offline</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-cloud"></i></div><div><h4>Cloud Synchronisation</h4><p>Access your data anytime</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-shield-halved"></i></div><div><h4>ZIMRA Fiscalisation</h4><p>Compliant &amp; ready</p></div></div>
+<div class="f rv"><div class="ic"><i class="fas fa-calculator"></i></div><div><h4>Accounting &amp; Expenses</h4><p>Manage your finances easily</p></div></div>
+</div>
 
-    <section id="pricing" class="section section-dark">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Spark POS Pricing</h2>
-                <p>Transparent subscription tiers with no hidden fees. Scale as your operations grow.</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card animate-on-scroll">
-                    <h3>Starter</h3>
-                    <div class="price">$0<span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Single User Account</li>
-                        <li><i class="fas fa-check"></i> Basic Inventory Control</li>
-                        <li><i class="fas fa-check"></i> Standard Sales Reporting</li>
-                    </ul>
-                    <a href="https://wa.me/263719618527?text=I%27m%20interested%20in%20the%20Starter%20plan%20for%20Spark%20POS" target="_blank" class="btn-primary" style="width:100%; justify-content: center; text-decoration: none;">Start Free</a>
-                </div>
-                <div class="pricing-card popular animate-on-scroll">
-                    <div class="popular-tag">Recommended</div>
-                    <h3>Professional</h3>
-                    <div class="price">$25<span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Unlimited User Accounts</li>
-                        <li><i class="fas fa-check"></i> Remote Sales Tracking</li>
-                        <li><i class="fas fa-check"></i> Loyalty & Marketing Suite</li>
-                    </ul>
-                    <a href="https://wa.me/263719618527?text=I%27m%20interested%20in%20the%20Professional%20plan%20for%20Spark%20POS" target="_blank" class="btn-primary" style="width:100%; justify-content: center; text-decoration: none;">Get Professional</a>
-                </div>
-                <div class="pricing-card animate-on-scroll">
-                    <h3>Business</h3>
-                    <div class="price">$10<span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Up to 3 User Accounts</li>
-                        <li><i class="fas fa-check"></i> Advanced Analytics Suite</li>
-                        <li><i class="fas fa-check"></i> Multi-Device Access</li>
-                    </ul>
-                    <a href="https://wa.me/263719618527?text=I%27m%20interested%20in%20the%20Business%20plan%20for%20Spark%20POS" target="_blank" class="btn-primary" style="width:100%; justify-content: center; text-decoration: none;">Choose Business</a>
-                </div>
-                <div class="pricing-card animate-on-scroll">
-                    <h3>Enterprise</h3>
-                    <div class="price">$50<span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Multi-Branch Management</li>
-                        <li><i class="fas fa-check"></i> Advanced Financial Reports</li>
-                        <li><i class="fas fa-check"></i> Priority Support SLA</li>
-                    </ul>
-                    <a href="https://wa.me/263719618527?text=I%27m%20interested%20in%20the%20Enterprise%20plan%20for%20Spark%20POS" target="_blank" class="btn-primary" style="width:100%; justify-content: center; text-decoration: none;">Contact Enterprise</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="resto rv">
+<div>
+<h3>Perfect for restaurants &amp; food businesses</h3>
+<p>Take orders online, send them to the kitchen and get food to the door, all from the same system that runs your till.</p>
+<ul class="ticks">
+<li><i class="fas fa-circle-check"></i> Online Ordering Website</li>
+<li><i class="fas fa-circle-check"></i> Kitchen Order Management</li>
+<li><i class="fas fa-circle-check"></i> Delivery Management</li>
+<li><i class="fas fa-circle-check"></i> Live Driver Tracking</li>
+<li><i class="fas fa-circle-check"></i> Online Payments</li>
+</ul>
+<a class="btn" href="https://wa.me/263719618527?text=I%20run%20a%20restaurant%20and%20want%20to%20know%20more%20about%20Spark%20POS" target="_blank"><i class="fab fa-whatsapp"></i> Talk to us about restaurants</a>
+</div>
+<div class="rcards">
+<div class="rc"><i class="fas fa-globe"></i>Online Ordering</div>
+<div class="rc"><i class="fas fa-kitchen-set"></i>Kitchen Orders</div>
+<div class="rc"><i class="fas fa-motorcycle"></i>Delivery</div>
+<div class="rc"><i class="fas fa-location-dot"></i>Live Tracking</div>
+</div>
+</div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Electrify Technologies</h4>
-                    <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 1rem;">Building robust enterprise software infrastructure for modern organizations.</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=100089633169763" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Spark POS</h4>
-                    <ul>
-                        <li><a href="#spark-pos">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="https://wa.me/263719618527?text=I%27d%20like%20to%20start%20a%20Spark%20POS%20trial" target="_blank">Start Trial</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Solutions</h4>
-                    <ul>
-                        <li><a href="#schoolbucks">Schoolbucks</a></li>
-                        <li><a href="#solutions">HR Management</a></li>
-                        <li><a href="#solutions">WhatsApp Chatbots</a></li>
-                        <li><a href="#solutions">Custom Development</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><i class="fas fa-phone-alt"></i> +263 787 571 813</li>
-                        <li><i class="fab fa-whatsapp"></i> +263 719 618 527</li>
-                        <li>admin@electrify.co.zw</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2026 Electrify Technologies. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<div class="why">
+<div><i class="fas fa-rocket"></i> Boost Productivity</div>
+<div><i class="fas fa-chart-line"></i> Grow Your Business</div>
+<div><i class="fas fa-lock"></i> Reliable &amp; Secure</div>
+<div><i class="fas fa-headset"></i> Dedicated Support</div>
+</div>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+<div class="cta rv">
+<h3>Take control of your business <em>today!</em></h3>
+<p>Suitable for retail shops, supermarkets, restaurants, boutiques and more. Call or WhatsApp us for a demo.</p>
+<div class="btns" style="justify-content:center">
+<a class="btn yel" href="tel:+263719618527"><i class="fas fa-phone"></i> +263 719 618 527</a>
+<a class="btn wh" href="tel:+263779952384"><i class="fas fa-phone"></i> +263 779 952 384</a>
+</div>
+</div>
+</div>
+</section>
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
+<section id="schoolbucks" class="container" style="padding-bottom:5rem">
+<div class="sb rv">
+<div style="position:relative;z-index:1">
+<span class="badge">Upcoming Project</span>
+<h2>Schoolbucks</h2>
+<p>Schoolbucks is a rewards platform in development for users in South Africa and Zimbabwe. Members will complete offers from partner networks and earn rewards for qualifying activity, with flexible payouts such as mobile money and bank transfer planned for launch. It is being built around user verification, reward transparency and account security.</p>
+<ul>
+<li><i class="fas fa-circle-check"></i> Offer-Based Rewards</li>
+<li><i class="fas fa-circle-check"></i> Wallet &amp; Balance Tracking</li>
+<li><i class="fas fa-circle-check"></i> Mobile Money &amp; Bank Payouts</li>
+<li><i class="fas fa-circle-check"></i> Referral Programme</li>
+<li><i class="fas fa-circle-check"></i> Email Verification</li>
+<li><i class="fas fa-circle-check"></i> Fraud Monitoring</li>
+</ul>
+<a class="btn wh" href="https://wa.me/263719618527?text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20the%20upcoming%20Schoolbucks%20platform" target="_blank">Inquire About Schoolbucks</a>
+</div>
+<div class="sblogo"><img src="sb.png" alt="Schoolbucks logo" onerror="this.src='https://placehold.co/120x120/0641ab/white?text=SB'"><span>Schoolbucks</span></div>
+</div>
+</section>
 
-        // Scroll Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<section id="solutions" class="section alt">
+<div class="container">
+<div class="head rv"><h2>More from Electrify Technologies</h2><p>Software and digital services for organisations that want to work smarter.</p></div>
+<div class="grid">
+<div class="sv rv"><div class="big"><i class="fas fa-id-card-clip"></i></div><h3>Ultimate HR Management</h3><ul><li><i class="fas fa-circle-check"></i> Facial Recognition Attendance</li><li><i class="fas fa-circle-check"></i> Automated Payroll Integration</li><li><i class="fas fa-circle-check"></i> Employee Records &amp; Performance</li></ul><a class="btn" href="https://wa.me/263719618527?text=Hello%2C%20I%27m%20interested%20in%20the%20Ultimate%20HR%20Management%20System%20with%20facial%20recognition" target="_blank">Request Consultation</a></div>
+<div class="sv rv"><div class="big"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp Business Automation</h3><ul><li><i class="fas fa-circle-check"></i> 24/7 Intelligent Chatbot Flows</li><li><i class="fas fa-circle-check"></i> Product Catalog Integration</li><li><i class="fas fa-circle-check"></i> Lead Generation &amp; Sales Funnels</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20need%20a%20WhatsApp%20chatbot%20system%20for%20automated%20customer%20support" target="_blank">Deploy Chatbot</a></div>
+<div class="sv rv"><div class="big"><i class="fas fa-laptop-code"></i></div><h3>Web Design &amp; Development</h3><ul><li><i class="fas fa-circle-check"></i> Responsive &amp; Modern Architecture</li><li><i class="fas fa-circle-check"></i> SEO-Optimized Frameworks</li><li><i class="fas fa-circle-check"></i> E-Commerce &amp; CMS Platforms</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20want%20to%20discuss%20a%20professional%20website%20for%20my%20business" target="_blank">Start a Project</a></div>
+<div class="sv rv"><div class="big"><i class="fas fa-code"></i></div><h3>Custom Software Development</h3><ul><li><i class="fas fa-circle-check"></i> Enterprise Workflow Automation</li><li><i class="fas fa-circle-check"></i> Legacy System Modernization</li><li><i class="fas fa-circle-check"></i> Scalable Cloud Infrastructure</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20need%20a%20custom%20software%20solution%20tailored%20to%20my%20business%20processes" target="_blank">Discuss Requirements</a></div>
+<div class="sv rv"><div class="big"><i class="fas fa-server"></i></div><h3>Hosting &amp; Domain Services</h3><ul><li><i class="fas fa-circle-check"></i> Domain Registration: $5/year</li><li><i class="fas fa-circle-check"></i> Web Hosting: $5/month or $48/year</li><li><i class="fas fa-circle-check"></i> SSL &amp; Daily Backups Included</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20want%20to%20register%20a%20domain%20or%20get%20reliable%20web%20hosting" target="_blank">Get Hosting</a></div>
+<div class="sv rv"><div class="big"><i class="fas fa-diagram-project"></i></div><h3>Business Process Automation</h3><ul><li><i class="fas fa-circle-check"></i> Operational Digitization</li><li><i class="fas fa-circle-check"></i> Enterprise ERP Integration</li><li><i class="fas fa-circle-check"></i> Cloud &amp; Hybrid Deployment</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20need%20business%20automation%20to%20streamline%20operations%20and%20reduce%20manual%20work" target="_blank">Automate Now</a></div>
+</div>
+</div>
+</section>
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+<section id="about" class="section">
+<div class="container"><div class="about">
+<div class="rv">
+<h2>Electrify Technologies</h2>
+<p>We build reliable digital infrastructure that helps organisations across Africa and beyond turn big ideas into working systems.</p>
+<p>Our approach pairs deep technical skill with structured problem-solving, so the software we deliver is scalable, fast and built to give you an edge.</p>
+<div class="contact">
+<p><i class="fas fa-envelope"></i> admin@electrify.co.zw</p>
+<p><i class="fas fa-phone-alt"></i> +263 787 571 813 &nbsp;|&nbsp; +263 719 618 527 &nbsp;|&nbsp; +263 779 952 384</p>
+</div>
+<a class="btn" href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27d%20like%20to%20discuss%20solutions%20for%20my%20business" target="_blank"><i class="fab fa-whatsapp"></i> Connect with Sales</a>
+</div>
+<div class="hub rv">
+<div><i class="fas fa-cash-register"></i>Point of Sale</div>
+<div><i class="fas fa-comments"></i>Chat Automation</div>
+<div><i class="fas fa-server"></i>Hosting</div>
+<div><i class="fas fa-people-group"></i>HR Systems</div>
+</div>
+</div></div>
+</section>
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
+<footer>
+<div class="container">
+<div class="fg">
+<div><h4>Electrify Technologies</h4><p style="font-size:.88rem;opacity:.85;margin-bottom:1rem">The Power of Imagination. Software that helps modern organisations work smarter.</p><div class="soc"><a href="https://www.facebook.com/profile.php?id=100089633169763" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/263719618527" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
+<div><h4>Spark POS</h4><ul><li><a href="#spark-pos">Features</a></li><li><a href="https://wa.me/263719618527?text=I%27d%20like%20to%20book%20a%20Spark%20POS%20demo" target="_blank">Book a Demo</a></li></ul></div>
+<div><h4>Solutions</h4><ul><li><a href="#schoolbucks">Schoolbucks</a></li><li><a href="#solutions">HR Management</a></li><li><a href="#solutions">WhatsApp Chatbots</a></li><li><a href="#solutions">Custom Development</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><i class="fas fa-phone-alt"></i> +263 787 571 813</li><li><i class="fab fa-whatsapp"></i> +263 719 618 527</li><li><i class="fas fa-phone-alt"></i> +263 779 952 384</li><li>admin@electrify.co.zw</li></ul></div>
+</div>
+<div class="copy">&copy; 2026 Electrify Technologies. All rights reserved.</div>
+</div>
+</footer>
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+<a class="wa-float" href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27m%20interested%20in%20Spark%20POS" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+document.querySelector('.mobile-menu').addEventListener('click',()=>document.querySelector('.nav-links').classList.toggle('active'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('active')));
+// ticker: duplicate content for seamless loop
+const tr=document.getElementById('track');tr.innerHTML+=tr.innerHTML;
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// typing headline
+const words=['smarter.','faster.','offline or online.','with ZIMRA ready.'];let w=0,c=0,del=false;const t=document.getElementById('type');
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+(function tick(){const s=words[w];c+=del?-1:1;t.textContent=s.slice(0,c);let d=del?40:90;
+if(!del&&c===s.length){del=true;d=1600}else if(del&&c===0){del=false;w=(w+1)%words.length;d=300}
+setTimeout(tick,d)})();}
+</script>
 </body>
 </html>
