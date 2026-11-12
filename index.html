@@ -3,354 +3,276 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Electrify Technologies | Spark Point of Sale &amp; Software Solutions</title>
+<title>Electrify Technologies | Spark POS, Websites, HR Software | Mutare, Zimbabwe</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--p:#0641ab;--pl:#1d55c7;--pd:#042d78;--sky:#e8f0fe;--y:#ffd21f;--g50:#f8fafc;--g200:#e2e8f0;--g600:#475569;--g800:#1e293b;--sh:0 20px 40px -12px rgba(6,65,171,.25)}
+:root{--p:#0641ab;--pd:#042d78;--sky:#e8f0fe;--y:#ffd21f;--g:#475569;--line:#dbe3f0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,sans-serif;color:#111827;line-height:1.55;overflow-x:hidden;background:#fff}
+body{font-family:'Montserrat',sans-serif;font-weight:500;color:#142033;line-height:1.65;overflow-x:hidden;background:#fff}
 a{text-decoration:none}
-.container{max-width:1240px;margin:0 auto;padding:0 1.5rem}
-/* header */
-header{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);z-index:1000;border-bottom:1px solid var(--g200)}
-.navbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-.logo{display:flex;align-items:center;gap:.7rem;font-weight:800;font-size:1.25rem;color:var(--p);letter-spacing:-.02em}
-.logo img{height:40px;width:auto}
-.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
-.nav-links a{color:var(--g800);font-weight:500;font-size:.95rem;transition:color .2s}
-.nav-links a:hover{color:var(--p)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--p);color:#fff!important;padding:.75rem 1.6rem;border-radius:999px;font-weight:700;font-size:.95rem;border:2px solid var(--p);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(6,65,171,.3);background:var(--pd)}
-.btn.out{background:transparent;color:var(--p)!important}
-.btn.out:hover{background:var(--p);color:#fff!important}
-.btn.yel{background:var(--y);border-color:var(--y);color:var(--pd)!important}
-.btn.yel:hover{background:#ffe066}
-.btn.wh{background:#fff;border-color:#fff;color:var(--p)!important}
-.mobile-menu{display:none;font-size:1.5rem;cursor:pointer}
-/* hero */
-.hero{padding:8.5rem 0 5rem;background:linear-gradient(135deg,#eaf1ff,#cfe0fb 60%,#b9d2f8);position:relative;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(10px);opacity:.5;animation:drift 12s ease-in-out infinite}
-.b1{width:380px;height:380px;background:#fff;top:-120px;right:-80px}
-.b2{width:260px;height:260px;background:var(--y);bottom:-100px;left:-60px;opacity:.35;animation-delay:-5s}
-@keyframes drift{50%{transform:translate(30px,30px) scale(1.08)}}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;position:relative;z-index:1}
-.pill{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--p);font-weight:700;font-size:.85rem;padding:.4rem 1rem;border-radius:999px;box-shadow:0 4px 12px rgba(6,65,171,.12);margin-bottom:1.25rem}
-.pill i{color:var(--y);text-shadow:0 0 1px #b88f00}
-.hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;color:var(--pd);margin-bottom:1.25rem}
-.type{color:var(--p);border-right:3px solid var(--p);padding-right:4px;animation:blink .8s step-end infinite}
-@keyframes blink{50%{border-color:transparent}}
-.hero p{font-size:1.15rem;color:var(--g600);margin-bottom:2rem;max-width:34rem}
-.btns{display:flex;gap:1rem;flex-wrap:wrap}
-.hero-img{position:relative;display:flex;justify-content:center}
-.hero-img img{width:100%;max-width:470px;border-radius:1.25rem;box-shadow:var(--sh);transform:rotate(2.5deg);transition:transform .5s;animation:float 6s ease-in-out infinite;border:6px solid #fff}
-.hero-img:hover img{transform:rotate(0) scale(1.03)}
-@keyframes float{50%{translate:0 -14px}}
-.chip{position:absolute;background:#fff;border-radius:14px;padding:.6rem .95rem;font-weight:700;font-size:.82rem;box-shadow:0 10px 25px rgba(6,65,171,.2);display:flex;align-items:center;gap:.5rem;color:var(--pd);animation:float 5s ease-in-out infinite}
-.chip i{color:var(--p)}
-.c1{top:8%;left:-2%}.c2{bottom:22%;right:-3%;animation-delay:-2s}.c3{bottom:4%;left:4%;animation-delay:-3.5s}
-/* ticker */
-.ticker{background:var(--pd);color:#fff;overflow:hidden;white-space:nowrap;padding:.9rem 0}
-.track{display:inline-block;animation:scroll 32s linear infinite}
-.ticker span{margin:0 1.6rem;font-weight:600;font-size:.95rem}
-.ticker i{color:var(--y);margin-right:.5rem}
-@keyframes scroll{to{transform:translateX(-50%)}}
-/* sections */
-.section{padding:5.5rem 0}
-.alt{background:var(--g50)}
-.head{text-align:center;max-width:720px;margin:0 auto 3rem}
-.head h2{font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-.025em;color:var(--pd);margin-bottom:.8rem}
-.head p{color:var(--g600);font-size:1.1rem}
-/* spark */
-.spark-top{display:grid;grid-template-columns:.9fr 1.1fr;gap:3.5rem;align-items:center;margin-bottom:4rem}
-.poster{position:relative}
-.poster img{width:100%;border-radius:1.25rem;box-shadow:var(--sh);transition:transform .4s}
-.poster:hover img{transform:scale(1.02) rotate(-1deg)}
-.zim{display:flex;gap:1.1rem;align-items:center;background:linear-gradient(135deg,var(--pd),var(--p));color:#fff;border-radius:1.25rem;padding:1.4rem 1.6rem;margin-bottom:1.5rem}
-.zim i{font-size:2.4rem;color:var(--y)}
-.zim h3{font-size:1.2rem;margin-bottom:.2rem}
-.zim p{font-size:.95rem;color:#dbe7ff}
-.spark-info h3.t{font-size:1.9rem;font-weight:800;color:var(--pd);letter-spacing:-.02em;margin-bottom:.8rem}
-.spark-info>p{color:var(--g600);margin-bottom:1.5rem}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem}
-.stat{background:var(--sky);border-radius:1rem;padding:1rem;text-align:center}
-.stat b{display:block;font-size:1.7rem;font-weight:900;color:var(--p)}
-.stat small{color:var(--g600);font-weight:600;font-size:.8rem}
-.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.1rem}
-.f{display:flex;gap:1rem;background:#fff;border:1px solid var(--g200);border-radius:1rem;padding:1.15rem;transition:transform .25s,box-shadow .25s,border-color .25s}
-.f:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:var(--p)}
-.f .ic{flex:none;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--pl),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:transform .3s}
-.f:hover .ic{transform:rotate(-12deg) scale(1.1)}
-.f h4{font-size:1.02rem;font-weight:700;color:var(--pd)}
-.f p{font-size:.88rem;color:var(--g600)}
-/* restaurant */
-.resto{margin-top:4rem;background:linear-gradient(135deg,#fff7d6,#ffe8a3);border-radius:1.75rem;padding:3rem;display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center}
-.resto h3{font-size:2rem;font-weight:800;color:var(--pd);margin-bottom:.6rem;letter-spacing:-.02em}
-.resto>div>p{color:#5b4a00;margin-bottom:1.25rem}
-.ticks{list-style:none;display:grid;gap:.7rem;margin-bottom:1.75rem}
-.ticks li{display:flex;gap:.7rem;align-items:center;font-weight:600;color:var(--pd)}
-.ticks i{color:var(--p);font-size:1.15rem}
-.rcards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.rc{background:#fff;border-radius:1.1rem;padding:1.3rem;text-align:center;box-shadow:0 8px 20px rgba(120,90,0,.15);font-weight:700;color:var(--pd);font-size:.9rem}
-.rc i{display:block;font-size:1.9rem;color:var(--p);margin-bottom:.5rem}
-.rc:nth-child(2){transform:translateY(18px)}.rc:nth-child(4){transform:translateY(18px)}
-.why{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:3rem}
-.why div{display:flex;align-items:center;gap:.6rem;background:var(--sky);color:var(--pd);font-weight:700;padding:.7rem 1.3rem;border-radius:999px}
-.cta{margin-top:3rem;background:var(--pd);border-radius:1.75rem;padding:2.6rem;text-align:center;color:#fff}
-.cta h3{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;margin-bottom:.5rem}
-.cta h3 em{color:var(--y);font-style:normal}
-.cta p{color:#c7d8fb;margin-bottom:1.5rem}
-/* schoolbucks */
-.sb{background:linear-gradient(135deg,var(--pd),var(--p));color:#fff;border-radius:1.75rem;padding:3.5rem;display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;position:relative;overflow:hidden}
-.sb::after{content:'';position:absolute;right:-8%;bottom:-35%;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.05)}
-.badge{display:inline-block;background:rgba(255,255,255,.18);padding:.35rem 1rem;border-radius:999px;font-size:.8rem;font-weight:700;margin-bottom:1rem}
-.sb h2{font-size:2.5rem;font-weight:900;margin-bottom:1rem}
-.sb p{color:#e2e8f0;margin-bottom:1.5rem}
-.sb ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:2rem;font-size:.92rem}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--pd)}
+header{position:fixed;top:0;width:100%;background:#fff;z-index:50;border-bottom:3px solid var(--p)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:.8rem 0}
+.logo{display:flex;align-items:center;gap:.65rem;font-weight:800;color:var(--p);font-size:1.1rem}
+.logo img{height:40px}
+.links{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.links a{color:#142033;font-weight:600;font-size:.9rem}
+.links a:hover{color:var(--p)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--p);color:#fff!important;padding:.8rem 1.5rem;border-radius:.5rem;font-weight:700;font-size:.92rem;border:2px solid var(--p);transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px);background:var(--pd)}
+.btn.o{background:#fff;color:var(--p)!important}
+.btn.o:hover{background:var(--sky)}
+.btn.y{background:var(--y);border-color:var(--y);color:var(--pd)!important}
+.btn.s{padding:.55rem 1.1rem;font-size:.82rem}
+.burger{display:none;font-size:1.5rem;cursor:pointer}
+.hero{padding:8rem 0 4.5rem;background:linear-gradient(160deg,#eef4ff,#d5e3fb)}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-bottom:1.2rem}
+.hero p{font-size:1.08rem;color:var(--g);max-width:32rem;margin-bottom:1.8rem}
+.row{display:flex;gap:.9rem;flex-wrap:wrap}
+.hero img{width:100%;max-width:460px;display:block;margin:0 auto;border:6px solid #fff;border-radius:1rem;box-shadow:0 22px 45px -15px rgba(4,45,120,.4);transform:rotate(2deg);animation:fl 7s ease-in-out infinite}
+@keyframes fl{50%{translate:0 -10px}}
+.sec{padding:5rem 0}
+.alt{background:#f5f8fd}
+.head{max-width:680px;margin-bottom:2.5rem}
+.head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:.7rem}
+.head p{color:var(--g)}
+.split{display:grid;grid-template-columns:.95fr 1.05fr;gap:3.5rem;align-items:center}
+.split.rev{grid-template-columns:1.05fr .95fr}
+.pic img{width:100%;border-radius:1rem;box-shadow:0 18px 40px -14px rgba(4,45,120,.35);display:block;transition:transform .3s}
+.pic img:hover{transform:scale(1.015)}
+.zim{background:var(--pd);color:#fff;border-radius:.8rem;padding:1.2rem 1.4rem;display:flex;gap:1rem;align-items:center;margin-bottom:1.4rem}
+.zim i{font-size:2rem;color:var(--y)}
+.zim b{display:block;font-size:1.05rem}
+.zim span{font-size:.88rem;color:#cfdcf7}
+.txt h3{font-size:1.7rem;margin-bottom:.8rem}
+.txt>p{color:var(--g);margin-bottom:1.4rem}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:3rem}
+.f{display:flex;gap:.9rem;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:.7rem;background:#fff;transition:border-color .2s,transform .2s}
+.f:hover{border-color:var(--p);transform:translateY(-3px)}
+.f i{flex:none;width:42px;height:42px;border-radius:.6rem;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center}
+.f h4{font-size:.98rem;margin-bottom:.1rem}
+.f p{font-size:.85rem;color:var(--g);line-height:1.45}
+.food{margin-top:3.5rem;background:#fff4c7;border-radius:1rem;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.food h3{font-size:1.7rem;margin-bottom:.6rem}
+.food p{color:#5a4a08}
+.ck{list-style:none;display:grid;gap:.6rem}
+.ck li{font-weight:700;color:var(--pd);display:flex;gap:.6rem;align-items:center}
+.ck i{color:var(--p)}
+.price{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin:1.2rem 0}
+.price b{font-size:3rem;font-weight:900;color:var(--p);line-height:1}
+.price span{color:var(--g);font-weight:600;font-size:.95rem}
+.tag{display:inline-block;background:var(--y);color:var(--pd);font-weight:800;font-size:.8rem;padding:.3rem .8rem;border-radius:.4rem;margin-bottom:1rem}
+.three{display:grid;gap:.8rem;margin-bottom:1rem}
+.three div{border-left:4px solid var(--p);padding:.2rem 0 .2rem 1rem}
+.three b{color:var(--pd);display:block}
+.three span{color:var(--g);font-size:.9rem}
+.hr-list{list-style:none;display:grid;gap:.65rem;margin-bottom:1.6rem}
+.hr-list li{display:flex;gap:.7rem}
+.hr-list i{color:var(--p);margin-top:.35rem}
+.sb{background:var(--pd);color:#fff;border-radius:1rem;padding:3rem;display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:center}
+.sb h2{color:#fff;font-size:2.3rem;margin-bottom:.8rem}
+.sb p{color:#d6e2fa;margin-bottom:1.3rem}
+.sb ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.6rem;font-size:.9rem}
 .sb li i{color:#93c5fd;margin-right:.4rem}
-.sblogo{background:#fff;border-radius:1.25rem;padding:2.5rem;text-align:center;z-index:1;animation:float 6s ease-in-out infinite}
-.sblogo img{height:90px;width:auto;margin-bottom:1rem}
-.sblogo span{display:block;font-weight:800;font-size:1.5rem;color:var(--p)}
-/* services */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.sv{background:#fff;border:1px solid var(--g200);border-radius:1.25rem;padding:2rem;transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column}
-.sv:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:var(--p)}
-.sv .big{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--pl),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:1.2rem}
-.sv h3{font-size:1.3rem;font-weight:700;color:var(--pd);margin-bottom:.8rem}
-.sv ul{list-style:none;margin-bottom:1.5rem;flex:1}
-.sv li{font-size:.92rem;color:var(--g600);margin-bottom:.5rem;display:flex;gap:.5rem;align-items:center}
-.sv li i{color:var(--p);font-size:.8rem}
-.sv .btn{align-self:flex-start;padding:.55rem 1.2rem;font-size:.85rem}
-/* about */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.about h2{font-size:2.3rem;font-weight:800;color:var(--pd);margin-bottom:1.2rem}
-.about p{color:var(--g600);margin-bottom:1.1rem}
-.contact{margin:1.5rem 0;padding-top:1rem;border-top:1px solid var(--g200)}
-.contact p{display:flex;gap:.7rem;align-items:center;color:var(--g800);margin-bottom:.6rem}
-.contact i{color:var(--p)}
-.hub{background:linear-gradient(135deg,#4fa8ee,#2a7fd4);border-radius:1.5rem;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;box-shadow:var(--sh)}
-.hub div{background:#fff;border-radius:1.1rem;padding:1.4rem;text-align:center;font-weight:700;color:var(--pd);font-size:.95rem}
-.hub i{display:block;font-size:2rem;color:var(--p);margin-bottom:.5rem}
-/* footer */
-footer{background:var(--pd);color:#e2e8f0;padding:4rem 0 2rem}
-.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2.5rem;margin-bottom:3rem}
-.fg h4{color:#fff;margin-bottom:1.1rem}
-.fg ul{list-style:none}.fg li{margin-bottom:.6rem;font-size:.88rem}
-.fg a{color:#a9bde6;transition:color .2s}.fg a:hover{color:#fff}
-.soc a{display:inline-flex;width:38px;height:38px;border-radius:.6rem;background:rgba(255,255,255,.1);align-items:center;justify-content:center;color:#fff;margin-right:.6rem;transition:background .2s}
-.soc a:hover{background:var(--p)}
-.copy{text-align:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:#a9bde6}
-.wa-float{position:fixed;right:1.25rem;bottom:1.25rem;z-index:999;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;font-size:1.9rem;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.25);animation:pulse 2.2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.badge{display:inline-block;border:1px solid #93c5fd;color:#bcd4ff;font-weight:700;font-size:.78rem;padding:.25rem .8rem;border-radius:2rem;margin-bottom:.9rem}
+.sbl{background:#fff;border-radius:1rem;padding:2rem;text-align:center}
+.sbl img{height:84px;margin-bottom:.8rem}
+.sbl b{display:block;font-size:1.4rem;color:var(--p)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.sv{background:#fff;border:1px solid var(--line);border-radius:.8rem;padding:1.7rem;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.sv:hover{border-color:var(--p);transform:translateY(-3px)}
+.sv>i{font-size:1.6rem;color:var(--p);margin-bottom:.9rem}
+.sv h3{font-size:1.15rem;margin-bottom:.5rem}
+.sv p{color:var(--g);font-size:.9rem;margin-bottom:1.1rem;flex:1}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.about h2{font-size:2.2rem;margin-bottom:1rem}
+.about p{color:var(--g);margin-bottom:1rem}
+.ct{background:var(--sky);border-radius:.9rem;padding:2rem}
+.ct h3{margin-bottom:1rem}
+.ct p{display:flex;gap:.8rem;color:#142033;margin-bottom:.8rem;font-weight:600;font-size:.95rem}
+.ct i{color:var(--p);margin-top:.3rem;width:1rem}
+footer{background:var(--pd);color:#cfdcf7;padding:2.5rem 0;font-size:.85rem}
+.ft{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}
+footer a{color:#fff}
+.wa{position:fixed;right:1.2rem;bottom:1.2rem;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;font-size:1.8rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .rv.in{opacity:1;transform:none}
 :focus-visible{outline:3px solid var(--y);outline-offset:3px}
-@media(max-width:900px){.hero-grid,.spark-top,.resto,.sb,.about{grid-template-columns:1fr}.sb{padding:2.25rem}.sb ul{grid-template-columns:1fr}.resto{padding:2rem}.hero-img{margin-top:1rem}.c1{left:0}.c2{right:0}}
-@media(max-width:768px){
-.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:#fff;flex-direction:column;padding:1.5rem;gap:1rem;border-bottom:1px solid var(--g200)}
-.nav-links.active{display:flex}.mobile-menu{display:block}.section{padding:4rem 0}}
+@media(max-width:900px){.hg,.split,.split.rev,.food,.sb,.about{grid-template-columns:1fr}.sb{padding:2rem}.sb ul{grid-template-columns:1fr}.food{padding:1.8rem}.split.rev .pic{order:-1}}
+@media(max-width:768px){.links{display:none;position:absolute;top:100%;left:0;width:100%;background:#fff;flex-direction:column;padding:1.3rem;gap:1rem;border-bottom:1px solid var(--line)}.links.on{display:flex}.burger{display:block}.sec{padding:3.5rem 0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<header>
-<div class="container"><nav class="navbar">
-<a href="#" class="logo"><img src="log.png" alt="Electrify Technologies" onerror="this.src='https://placehold.co/42x42/0641ab/white?text=E'"><span>Electrify Technologies</span></a>
-<ul class="nav-links">
+<header><div class="wrap"><nav class="nav">
+<a href="#" class="logo"><img src="logo.png" alt="Electrify Technologies" onerror="this.src='https://placehold.co/42x42/0641ab/white?text=E'"><span>Electrify Technologies</span></a>
+<ul class="links">
 <li><a href="#spark-pos">Spark POS</a></li>
+<li><a href="#package">3in1 Package</a></li>
+<li><a href="#hr">HR &amp; Attendance</a></li>
 <li><a href="#schoolbucks">Schoolbucks</a></li>
-<li><a href="#solutions">Solutions</a></li>
-<li><a href="#about">About</a></li>
-<li><a class="btn" style="padding:.55rem 1.3rem" href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27m%20interested%20in%20your%20software%20solutions" target="_blank">Get Started</a></li>
+<li><a href="#about">Contact</a></li>
+<li><a class="btn s" href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27m%20interested%20in%20your%20software" target="_blank">WhatsApp us</a></li>
 </ul>
-<div class="mobile-menu" aria-label="Menu"><i class="fas fa-bars"></i></div>
-</nav></div>
-</header>
+<div class="burger" aria-label="Menu"><i class="fas fa-bars"></i></div>
+</nav></div></header>
 
-<section class="hero">
-<div class="blob b1"></div><div class="blob b2"></div>
-<div class="container"><div class="hero-grid">
+<section class="hero"><div class="wrap hg">
 <div>
-<span class="pill"><i class="fas fa-bolt"></i> The Power of Imagination</span>
-<h1>Run your business <span class="type" id="type">smarter.</span></h1>
-<p>Spark Point of Sale puts sales, stock and accounting in one system. It is ZIMRA fiscalisation ready, works offline and suits shops, supermarkets, boutiques and restaurants.</p>
-<div class="btns">
-<a href="#spark-pos" class="btn yel"><i class="fas fa-bolt"></i> Explore Spark POS</a>
-<a href="https://wa.me/263719618527?text=Hello%2C%20I%27d%20like%20a%20demo%20of%20Spark%20POS" target="_blank" class="btn out"><i class="fab fa-whatsapp"></i> Book a Demo</a>
+<h1>Software that helps Zimbabwean businesses run properly.</h1>
+<p>We’re Electrify Technologies in Mutare. We make Spark Point of Sale for shops and restaurants, build websites and WhatsApp chatbots, and supply HR and attendance software for companies and schools.</p>
+<div class="row">
+<a class="btn y" href="#spark-pos">See Spark POS</a>
+<a class="btn o" href="https://wa.me/263719618527?text=Hello%2C%20I%27d%20like%20a%20Spark%20POS%20demo" target="_blank"><i class="fab fa-whatsapp"></i> Ask for a demo</a>
 </div>
 </div>
-<div class="hero-img">
-<img src="spark-poster.png" alt="Spark Point of Sale poster showing the POS screen, receipt printer and restaurant tools">
-<div class="chip c1"><i class="fas fa-shield-halved"></i> ZIMRA Fiscalisation</div>
-<div class="chip c2"><i class="fas fa-wifi"></i> Works Offline</div>
-<div class="chip c3"><i class="fas fa-cloud"></i> Cloud Sync</div>
-</div>
-</div></div>
-</section>
+<div><img src="spark-poster.png" alt="Spark Point of Sale flyer"></div>
+</div></section>
 
-<div class="ticker" aria-hidden="true"><div class="track" id="track">
-<span><i class="fas fa-bolt"></i>Fast &amp; Easy POS</span><span><i class="fas fa-bolt"></i>Inventory Management</span><span><i class="fas fa-bolt"></i>Financial Reports</span><span><i class="fas fa-bolt"></i>ZIMRA Fiscalisation</span><span><i class="fas fa-bolt"></i>Offline Mode</span><span><i class="fas fa-bolt"></i>Online Ordering</span><span><i class="fas fa-bolt"></i>Live Driver Tracking</span><span><i class="fas fa-bolt"></i>Cloud Synchronisation</span>
-</div></div>
-
-<section id="spark-pos" class="section">
-<div class="container">
-<div class="head rv"><h2>Spark Point of Sale</h2><p>Sales. Stock. Accounting. All in one system.</p></div>
-
-<div class="spark-top">
-<div class="poster rv"><img src="spark-poster.png" alt="Spark Point of Sale flyer" loading="lazy"></div>
-<div class="spark-info rv">
-<div class="zim"><i class="fas fa-shield-halved"></i><div><h3>ZIMRA Fiscalisation: compliant and ready</h3><p>Stay on the right side of the tax authority without extra hardware headaches.</p></div></div>
-<h3 class="t">Take control of your business today.</h3>
-<p>Whether you run a retail shop, a supermarket, a boutique or a restaurant, Spark gives you one screen for selling, tracking stock, printing receipts and understanding your numbers.</p>
-<div class="stats">
-<div class="stat"><b>11</b><small>Core tools</small></div>
-<div class="stat"><b>100%</b><small>Works offline</small></div>
-<div class="stat"><b>24/7</b><small>Cloud access</small></div>
-</div>
-<div class="btns">
-<a class="btn yel" href="https://wa.me/263719618527?text=I%27d%20like%20to%20start%20with%20Spark%20POS" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-<a class="btn out" href="tel:+263779952384"><i class="fas fa-phone"></i> +263 779 952 384</a>
+<section id="spark-pos" class="sec"><div class="wrap">
+<div class="split">
+<div class="pic rv"><img src="spark-poster.png" alt="Spark Point of Sale with receipt printer, POS screen and restaurant ordering" loading="lazy"></div>
+<div class="txt rv">
+<div class="zim"><i class="fas fa-shield-halved"></i><div><b>ZIMRA fiscalisation: compliant and ready</b><span>Sell without worrying about the tax side.</span></div></div>
+<h3>Spark Point of Sale</h3>
+<p>Sales, stock and accounting in one system. If you run a retail shop, a supermarket, a boutique or a restaurant, Spark gives you one place to sell, count stock, print receipts and see how the business is really doing. When the internet drops, you keep serving, and everything syncs to the cloud once you’re back online.</p>
+<div class="row">
+<a class="btn" href="https://wa.me/263719618527?text=I%27d%20like%20to%20know%20more%20about%20Spark%20POS" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
+<a class="btn o" href="tel:+263779952384"><i class="fas fa-phone"></i> +263 779 952 384</a>
 </div>
 </div>
 </div>
 
-<div class="fgrid">
-<div class="f rv"><div class="ic"><i class="fas fa-cart-shopping"></i></div><div><h4>Fast &amp; Easy POS</h4><p>Process sales quickly</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-box"></i></div><div><h4>Inventory Management</h4><p>Track stock levels &amp; movements</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-chart-line"></i></div><div><h4>Sales &amp; Financial Reports</h4><p>Monitor your performance</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-hand-holding-dollar"></i></div><div><h4>Debtors &amp; Creditors</h4><p>Keep track of money owed</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-users"></i></div><div><h4>Customer Management</h4><p>Build lasting relationships</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-print"></i></div><div><h4>Receipt Printing</h4><p>Professional receipts</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-utensils"></i></div><div><h4>Recipe Management</h4><p>Create recipes for advanced stock management &amp; cost analysis</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-wifi"></i></div><div><h4>Offline Mode</h4><p>Keep serving, even offline</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-cloud"></i></div><div><h4>Cloud Synchronisation</h4><p>Access your data anytime</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-shield-halved"></i></div><div><h4>ZIMRA Fiscalisation</h4><p>Compliant &amp; ready</p></div></div>
-<div class="f rv"><div class="ic"><i class="fas fa-calculator"></i></div><div><h4>Accounting &amp; Expenses</h4><p>Manage your finances easily</p></div></div>
-</div>
-
-<div class="resto rv">
-<div>
-<h3>Perfect for restaurants &amp; food businesses</h3>
-<p>Take orders online, send them to the kitchen and get food to the door, all from the same system that runs your till.</p>
-<ul class="ticks">
-<li><i class="fas fa-circle-check"></i> Online Ordering Website</li>
-<li><i class="fas fa-circle-check"></i> Kitchen Order Management</li>
-<li><i class="fas fa-circle-check"></i> Delivery Management</li>
-<li><i class="fas fa-circle-check"></i> Live Driver Tracking</li>
-<li><i class="fas fa-circle-check"></i> Online Payments</li>
-</ul>
-<a class="btn" href="https://wa.me/263719618527?text=I%20run%20a%20restaurant%20and%20want%20to%20know%20more%20about%20Spark%20POS" target="_blank"><i class="fab fa-whatsapp"></i> Talk to us about restaurants</a>
-</div>
-<div class="rcards">
-<div class="rc"><i class="fas fa-globe"></i>Online Ordering</div>
-<div class="rc"><i class="fas fa-kitchen-set"></i>Kitchen Orders</div>
-<div class="rc"><i class="fas fa-motorcycle"></i>Delivery</div>
-<div class="rc"><i class="fas fa-location-dot"></i>Live Tracking</div>
-</div>
-</div>
-
-<div class="why">
-<div><i class="fas fa-rocket"></i> Boost Productivity</div>
-<div><i class="fas fa-chart-line"></i> Grow Your Business</div>
-<div><i class="fas fa-lock"></i> Reliable &amp; Secure</div>
-<div><i class="fas fa-headset"></i> Dedicated Support</div>
-</div>
-
-<div class="cta rv">
-<h3>Take control of your business <em>today!</em></h3>
-<p>Suitable for retail shops, supermarkets, restaurants, boutiques and more. Call or WhatsApp us for a demo.</p>
-<div class="btns" style="justify-content:center">
-<a class="btn yel" href="tel:+263719618527"><i class="fas fa-phone"></i> +263 719 618 527</a>
-<a class="btn wh" href="tel:+263779952384"><i class="fas fa-phone"></i> +263 779 952 384</a>
-</div>
-</div>
-</div>
-</section>
-
-<section id="schoolbucks" class="container" style="padding-bottom:5rem">
-<div class="sb rv">
-<div style="position:relative;z-index:1">
-<span class="badge">Upcoming Project</span>
-<h2>Schoolbucks</h2>
-<p>Schoolbucks is a rewards platform in development for users in South Africa and Zimbabwe. Members will complete offers from partner networks and earn rewards for qualifying activity, with flexible payouts such as mobile money and bank transfer planned for launch. It is being built around user verification, reward transparency and account security.</p>
-<ul>
-<li><i class="fas fa-circle-check"></i> Offer-Based Rewards</li>
-<li><i class="fas fa-circle-check"></i> Wallet &amp; Balance Tracking</li>
-<li><i class="fas fa-circle-check"></i> Mobile Money &amp; Bank Payouts</li>
-<li><i class="fas fa-circle-check"></i> Referral Programme</li>
-<li><i class="fas fa-circle-check"></i> Email Verification</li>
-<li><i class="fas fa-circle-check"></i> Fraud Monitoring</li>
-</ul>
-<a class="btn wh" href="https://wa.me/263719618527?text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20the%20upcoming%20Schoolbucks%20platform" target="_blank">Inquire About Schoolbucks</a>
-</div>
-<div class="sblogo"><img src="sb.png" alt="Schoolbucks logo" onerror="this.src='https://placehold.co/120x120/0641ab/white?text=SB'"><span>Schoolbucks</span></div>
-</div>
-</section>
-
-<section id="solutions" class="section alt">
-<div class="container">
-<div class="head rv"><h2>More from Electrify Technologies</h2><p>Software and digital services for organisations that want to work smarter.</p></div>
-<div class="grid">
-<div class="sv rv"><div class="big"><i class="fas fa-id-card-clip"></i></div><h3>Ultimate HR Management</h3><ul><li><i class="fas fa-circle-check"></i> Facial Recognition Attendance</li><li><i class="fas fa-circle-check"></i> Automated Payroll Integration</li><li><i class="fas fa-circle-check"></i> Employee Records &amp; Performance</li></ul><a class="btn" href="https://wa.me/263719618527?text=Hello%2C%20I%27m%20interested%20in%20the%20Ultimate%20HR%20Management%20System%20with%20facial%20recognition" target="_blank">Request Consultation</a></div>
-<div class="sv rv"><div class="big"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp Business Automation</h3><ul><li><i class="fas fa-circle-check"></i> 24/7 Intelligent Chatbot Flows</li><li><i class="fas fa-circle-check"></i> Product Catalog Integration</li><li><i class="fas fa-circle-check"></i> Lead Generation &amp; Sales Funnels</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20need%20a%20WhatsApp%20chatbot%20system%20for%20automated%20customer%20support" target="_blank">Deploy Chatbot</a></div>
-<div class="sv rv"><div class="big"><i class="fas fa-laptop-code"></i></div><h3>Web Design &amp; Development</h3><ul><li><i class="fas fa-circle-check"></i> Responsive &amp; Modern Architecture</li><li><i class="fas fa-circle-check"></i> SEO-Optimized Frameworks</li><li><i class="fas fa-circle-check"></i> E-Commerce &amp; CMS Platforms</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20want%20to%20discuss%20a%20professional%20website%20for%20my%20business" target="_blank">Start a Project</a></div>
-<div class="sv rv"><div class="big"><i class="fas fa-code"></i></div><h3>Custom Software Development</h3><ul><li><i class="fas fa-circle-check"></i> Enterprise Workflow Automation</li><li><i class="fas fa-circle-check"></i> Legacy System Modernization</li><li><i class="fas fa-circle-check"></i> Scalable Cloud Infrastructure</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20need%20a%20custom%20software%20solution%20tailored%20to%20my%20business%20processes" target="_blank">Discuss Requirements</a></div>
-<div class="sv rv"><div class="big"><i class="fas fa-server"></i></div><h3>Hosting &amp; Domain Services</h3><ul><li><i class="fas fa-circle-check"></i> Domain Registration: $5/year</li><li><i class="fas fa-circle-check"></i> Web Hosting: $5/month or $48/year</li><li><i class="fas fa-circle-check"></i> SSL &amp; Daily Backups Included</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20want%20to%20register%20a%20domain%20or%20get%20reliable%20web%20hosting" target="_blank">Get Hosting</a></div>
-<div class="sv rv"><div class="big"><i class="fas fa-diagram-project"></i></div><h3>Business Process Automation</h3><ul><li><i class="fas fa-circle-check"></i> Operational Digitization</li><li><i class="fas fa-circle-check"></i> Enterprise ERP Integration</li><li><i class="fas fa-circle-check"></i> Cloud &amp; Hybrid Deployment</li></ul><a class="btn" href="https://wa.me/263719618527?text=I%20need%20business%20automation%20to%20streamline%20operations%20and%20reduce%20manual%20work" target="_blank">Automate Now</a></div>
-</div>
-</div>
-</section>
-
-<section id="about" class="section">
-<div class="container"><div class="about">
-<div class="rv">
-<h2>Electrify Technologies</h2>
-<p>We build reliable digital infrastructure that helps organisations across Africa and beyond turn big ideas into working systems.</p>
-<p>Our approach pairs deep technical skill with structured problem-solving, so the software we deliver is scalable, fast and built to give you an edge.</p>
-<div class="contact">
-<p><i class="fas fa-envelope"></i> admin@electrify.co.zw</p>
-<p><i class="fas fa-phone-alt"></i> +263 787 571 813 &nbsp;|&nbsp; +263 719 618 527 &nbsp;|&nbsp; +263 779 952 384</p>
-</div>
-<a class="btn" href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27d%20like%20to%20discuss%20solutions%20for%20my%20business" target="_blank"><i class="fab fa-whatsapp"></i> Connect with Sales</a>
-</div>
-<div class="hub rv">
-<div><i class="fas fa-cash-register"></i>Point of Sale</div>
-<div><i class="fas fa-comments"></i>Chat Automation</div>
-<div><i class="fas fa-server"></i>Hosting</div>
-<div><i class="fas fa-people-group"></i>HR Systems</div>
-</div>
-</div></div>
-</section>
-
-<footer>
-<div class="container">
 <div class="fg">
-<div><h4>Electrify Technologies</h4><p style="font-size:.88rem;opacity:.85;margin-bottom:1rem">The Power of Imagination. Software that helps modern organisations work smarter.</p><div class="soc"><a href="https://www.facebook.com/profile.php?id=100089633169763" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/263719618527" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
-<div><h4>Spark POS</h4><ul><li><a href="#spark-pos">Features</a></li><li><a href="https://wa.me/263719618527?text=I%27d%20like%20to%20book%20a%20Spark%20POS%20demo" target="_blank">Book a Demo</a></li></ul></div>
-<div><h4>Solutions</h4><ul><li><a href="#schoolbucks">Schoolbucks</a></li><li><a href="#solutions">HR Management</a></li><li><a href="#solutions">WhatsApp Chatbots</a></li><li><a href="#solutions">Custom Development</a></li></ul></div>
-<div><h4>Contact</h4><ul><li><i class="fas fa-phone-alt"></i> +263 787 571 813</li><li><i class="fab fa-whatsapp"></i> +263 719 618 527</li><li><i class="fas fa-phone-alt"></i> +263 779 952 384</li><li>admin@electrify.co.zw</li></ul></div>
+<div class="f"><i class="fas fa-cart-shopping"></i><div><h4>Fast &amp; Easy POS</h4><p>Process sales quickly</p></div></div>
+<div class="f"><i class="fas fa-box"></i><div><h4>Inventory Management</h4><p>Track stock levels and movements</p></div></div>
+<div class="f"><i class="fas fa-chart-line"></i><div><h4>Sales &amp; Financial Reports</h4><p>Monitor your performance</p></div></div>
+<div class="f"><i class="fas fa-hand-holding-dollar"></i><div><h4>Debtors &amp; Creditors</h4><p>Keep track of money owed</p></div></div>
+<div class="f"><i class="fas fa-users"></i><div><h4>Customer Management</h4><p>Build lasting relationships</p></div></div>
+<div class="f"><i class="fas fa-print"></i><div><h4>Receipt Printing</h4><p>Professional receipts</p></div></div>
+<div class="f"><i class="fas fa-utensils"></i><div><h4>Recipe Management</h4><p>Recipes for stock control and cost analysis</p></div></div>
+<div class="f"><i class="fas fa-wifi"></i><div><h4>Offline Mode</h4><p>Keep serving, even offline</p></div></div>
+<div class="f"><i class="fas fa-cloud"></i><div><h4>Cloud Synchronisation</h4><p>Access your data anytime</p></div></div>
+<div class="f"><i class="fas fa-shield-halved"></i><div><h4>ZIMRA Fiscalisation</h4><p>Compliant and ready</p></div></div>
+<div class="f"><i class="fas fa-calculator"></i><div><h4>Accounting &amp; Expenses</h4><p>Manage your finances easily</p></div></div>
 </div>
-<div class="copy">&copy; 2026 Electrify Technologies. All rights reserved.</div>
-</div>
-</footer>
 
-<a class="wa-float" href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27m%20interested%20in%20Spark%20POS" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<div class="food rv">
+<div>
+<h3>Running a restaurant or food business?</h3>
+<p>Spark also handles the orders that don’t come through the till, from the website to the kitchen to the delivery driver.</p>
+</div>
+<ul class="ck">
+<li><i class="fas fa-circle-check"></i> Online ordering website</li>
+<li><i class="fas fa-circle-check"></i> Kitchen order management</li>
+<li><i class="fas fa-circle-check"></i> Delivery management</li>
+<li><i class="fas fa-circle-check"></i> Live driver tracking</li>
+<li><i class="fas fa-circle-check"></i> Online payments</li>
+</ul>
+</div>
+</div></section>
+
+<section id="package" class="sec alt"><div class="wrap">
+<div class="split rev">
+<div class="txt rv">
+<span class="tag">Limited offer 2026</span>
+<h3>The 3in1 Business Package</h3>
+<p>A professional online presence with automated customer support. You get three things in one package:</p>
+<div class="three">
+<div><b>Website design</b><span>A mobile-friendly business website that shows your products and services and helps customers find you online, 24/7.</span></div>
+<div><b>WhatsApp chatbot</b><span>A virtual assistant that takes orders, handles many clients at once and works while you get on with the business. Includes an admin dashboard, and it copes well with the rush of enquiries when you run Facebook ads.</span></div>
+<div><b>Company emails</b><span>Up to 5 addresses like name@yourdomain.com, so you look professional and communicate securely.</span></div>
+</div>
+<div class="price"><b>$150</b><span>Full hosting: $2/month or $20/year</span></div>
+<a class="btn" href="https://wa.me/263719618527?text=I%27m%20interested%20in%20the%203in1%20Business%20Package" target="_blank"><i class="fab fa-whatsapp"></i> Get the package</a>
+</div>
+<div class="pic rv"><img src="package-3in1.jpg" alt="Electrify Technologies 3in1 Business Package: website design, WhatsApp chatbot and company emails for $150" loading="lazy"></div>
+</div>
+</div></section>
+
+<section id="hr" class="sec"><div class="wrap">
+<div class="split">
+<div class="pic rv"><img src="hr-attendance.jpg" alt="Facial Recognition Attendance System by Electrify Technologies" loading="lazy"></div>
+<div class="txt rv">
+<h3>Facial Recognition Attendance System</h3>
+<p>Our all-in-one HR software for businesses and schools. Staff or students walk in, the system recognises their face, and the record is done. No cards, no queues, nothing to touch.</p>
+<ul class="hr-list">
+<li><i class="fas fa-circle-check"></i> Touchless attendance with Face ID</li>
+<li><i class="fas fa-circle-check"></i> Timetables assigned by the system</li>
+<li><i class="fas fa-circle-check"></i> Hours worked and late hours flow straight into payroll</li>
+<li><i class="fas fa-circle-check"></i> Payroll, leave days and payslips</li>
+<li><i class="fas fa-circle-check"></i> Workers portal and contracts tracking</li>
+<li><i class="fas fa-circle-check"></i> Integrates with Sage 300 and Acumatica</li>
+<li><i class="fas fa-circle-check"></i> Links to your school system to check fees when students enter</li>
+</ul>
+<a class="btn" href="https://wa.me/263719618527?text=I%27d%20like%20a%20quote%20for%20the%20Facial%20Recognition%20Attendance%20System" target="_blank"><i class="fab fa-whatsapp"></i> Get a quote</a>
+</div>
+</div>
+</div></section>
+
+<section id="schoolbucks" class="sec alt"><div class="wrap">
+<div class="sb rv">
+<div>
+<span class="badge">Upcoming project</span>
+<h2>Schoolbucks</h2>
+<p>A rewards platform we’re building for people in South Africa and Zimbabwe. Members complete offers from partner networks and earn rewards for qualifying activity, with payouts such as mobile money and bank transfer planned for launch. We’re focusing on user verification, reward transparency and account security.</p>
+<ul>
+<li><i class="fas fa-circle-check"></i> Offer-based rewards</li>
+<li><i class="fas fa-circle-check"></i> Wallet and balance tracking</li>
+<li><i class="fas fa-circle-check"></i> Mobile money and bank payouts</li>
+<li><i class="fas fa-circle-check"></i> Referral programme</li>
+<li><i class="fas fa-circle-check"></i> Email verification</li>
+<li><i class="fas fa-circle-check"></i> Fraud monitoring</li>
+</ul>
+<a class="btn y" href="https://wa.me/263719618527?text=Hello%2C%20I%20am%20interested%20in%20the%20upcoming%20Schoolbucks%20platform" target="_blank">Ask about Schoolbucks</a>
+</div>
+<div class="sbl"><img src="sb.png" alt="Schoolbucks logo" onerror="this.src='https://placehold.co/120x120/0641ab/white?text=SB'"><b>Schoolbucks</b></div>
+</div>
+</div></section>
+
+<section id="solutions" class="sec"><div class="wrap">
+<div class="head"><h2>Other things we build</h2><p>If your problem isn’t listed here, tell us about it. We take on custom work.</p></div>
+<div class="grid">
+<div class="sv rv"><i class="fab fa-whatsapp"></i><h3>WhatsApp automation</h3><p>Chatbot flows that answer customers around the clock, show your product catalogue and capture leads.</p><a class="btn s" href="https://wa.me/263719618527?text=I%20need%20a%20WhatsApp%20chatbot%20for%20my%20business" target="_blank">Ask about chatbots</a></div>
+<div class="sv rv"><i class="fas fa-laptop-code"></i><h3>Websites</h3><p>Responsive business websites, online shops and content-managed sites that are built to be found on Google.</p><a class="btn s" href="https://wa.me/263719618527?text=I%20want%20a%20website%20for%20my%20business" target="_blank">Start a website</a></div>
+<div class="sv rv"><i class="fas fa-code"></i><h3>Custom software</h3><p>Workflow tools, upgrades for old systems and cloud-based software built around the way you actually work.</p><a class="btn s" href="https://wa.me/263719618527?text=I%20need%20custom%20software%20for%20my%20business" target="_blank">Tell us what you need</a></div>
+<div class="sv rv"><i class="fas fa-server"></i><h3>Domains &amp; hosting</h3><p>Domain registration from $5/year and web hosting at $5/month or $48/year, with SSL and daily backups included.</p><a class="btn s" href="https://wa.me/263719618527?text=I%20want%20a%20domain%20and%20hosting" target="_blank">Get hosting</a></div>
+<div class="sv rv"><i class="fas fa-diagram-project"></i><h3>Process automation</h3><p>Move paperwork and manual steps into software, and connect it to your ERP or accounting system.</p><a class="btn s" href="https://wa.me/263719618527?text=I%20need%20to%20automate%20some%20business%20processes" target="_blank">Talk to us</a></div>
+</div>
+</div></section>
+
+<section id="about" class="sec alt"><div class="wrap about">
+<div class="rv">
+<h2>Talk to a real person</h2>
+<p>Electrify Technologies is based in Mutare, and our slogan is “The Power of Imagination”. We build software for businesses in Zimbabwe and across Africa, and we’d rather understand how you work first than hand you something off the shelf.</p>
+<p>Send us a WhatsApp message, call, or come and see us.</p>
+<a class="btn" href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies%2C%20I%27d%20like%20to%20talk%20about%20my%20business" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
+</div>
+<div class="ct rv">
+<h3>Contact details</h3>
+<p><i class="fas fa-phone"></i><span>+263 787 571 813<br>+263 719 618 527<br>+263 779 952 384</span></p>
+<p><i class="fas fa-envelope"></i><span>admin@electrify.co.zw</span></p>
+<p><i class="fas fa-globe"></i><span>www.electrify.co.zw</span></p>
+<p><i class="fas fa-location-dot"></i><span>21 Banting Street, Mutare</span></p>
+</div>
+</div></section>
+
+<footer><div class="wrap ft">
+<span>&copy; 2026 Electrify Technologies. The Power of Imagination.</span>
+<span><a href="https://www.facebook.com/profile.php?id=100089633169763" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></span>
+</div></footer>
+
+<a class="wa" href="https://wa.me/263719618527?text=Hello%20Electrify%20Technologies" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-document.querySelector('.mobile-menu').addEventListener('click',()=>document.querySelector('.nav-links').classList.toggle('active'));
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('active')));
-// ticker: duplicate content for seamless loop
-const tr=document.getElementById('track');tr.innerHTML+=tr.innerHTML;
-// reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelector('.burger').onclick=()=>document.querySelector('.links').classList.toggle('on');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.querySelector('.links').classList.remove('on'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-// typing headline
-const words=['smarter.','faster.','offline or online.','with ZIMRA ready.'];let w=0,c=0,del=false;const t=document.getElementById('type');
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-(function tick(){const s=words[w];c+=del?-1:1;t.textContent=s.slice(0,c);let d=del?40:90;
-if(!del&&c===s.length){del=true;d=1600}else if(del&&c===0){del=false;w=(w+1)%words.length;d=300}
-setTimeout(tick,d)})();}
 </script>
 </body>
 </html>
