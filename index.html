@@ -33,8 +33,17 @@ header{position:fixed;top:0;width:100%;background:#fff;z-index:50;border-bottom:
 .hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-bottom:1.2rem}
 .hero p{font-size:1.08rem;color:var(--g);max-width:32rem;margin-bottom:1.8rem}
 .row{display:flex;gap:.9rem;flex-wrap:wrap}
-.hero img{width:100%;max-width:460px;display:block;margin:0 auto;border:6px solid #fff;border-radius:1rem;box-shadow:0 22px 45px -15px rgba(4,45,120,.4);transform:rotate(2deg);animation:fl 7s ease-in-out infinite}
-@keyframes fl{50%{translate:0 -10px}}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.up{opacity:0;animation:up .7s ease forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}
+.qs{display:grid;gap:1rem}
+.qc{display:flex;gap:1.1rem;align-items:center;background:#fff;border-radius:.9rem;padding:1.2rem 1.4rem;border-left:5px solid var(--p);box-shadow:0 12px 28px -12px rgba(4,45,120,.3);transition:transform .25s,box-shadow .25s}
+.qc:hover{transform:translateX(8px);box-shadow:0 16px 32px -12px rgba(4,45,120,.4)}
+.qc>i{font-size:1.7rem;color:var(--p);width:2rem;text-align:center;transition:transform .3s}
+.qc:hover>i{transform:scale(1.2) rotate(-8deg)}
+.qc b{display:block;color:var(--pd);font-size:1.05rem}
+.qc span{font-size:.85rem;color:var(--g)}
+.qc:nth-child(2){margin-left:1.5rem}
 .sec{padding:5rem 0}
 .alt{background:#f5f8fd}
 .head{max-width:680px;margin-bottom:2.5rem}
@@ -101,6 +110,10 @@ footer a{color:#fff}
 .wa{position:fixed;right:1.2rem;bottom:1.2rem;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;font-size:1.8rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25)}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .rv.in{opacity:1;transform:none}
+.split .pic.rv{transform:translateX(-32px)}.split .txt.rv{transform:translateX(32px)}
+.split.rev .pic.rv{transform:translateX(32px)}.split.rev .txt.rv{transform:translateX(-32px)}
+.split .rv.in,.split.rev .rv.in{transform:none}
+.f i{transition:transform .3s}.f:hover i{transform:rotate(-10deg) scale(1.1)}
 :focus-visible{outline:3px solid var(--y);outline-offset:3px}
 @media(max-width:900px){.hg,.split,.split.rev,.food,.sb,.about{grid-template-columns:1fr}.sb{padding:2rem}.sb ul{grid-template-columns:1fr}.food{padding:1.8rem}.split.rev .pic{order:-1}}
 @media(max-width:768px){.links{display:none;position:absolute;top:100%;left:0;width:100%;background:#fff;flex-direction:column;padding:1.3rem;gap:1rem;border-bottom:1px solid var(--line)}.links.on{display:flex}.burger{display:block}.sec{padding:3.5rem 0}}
@@ -109,7 +122,7 @@ footer a{color:#fff}
 </head>
 <body>
 <header><div class="wrap"><nav class="nav">
-<a href="#" class="logo"><img src="logo.png" alt="Electrify Technologies" onerror="this.src='https://placehold.co/42x42/0641ab/white?text=E'"><span> </span></a>
+<a href="#" class="logo"><img src="logo.png" alt="Electrify Technologies" onerror="this.src='https://placehold.co/42x42/0641ab/white?text=E'"><span>Electrify Technologies</span></a>
 <ul class="links">
 <li><a href="#spark-pos">Spark POS</a></li>
 <li><a href="#package">3in1 Package</a></li>
@@ -123,14 +136,18 @@ footer a{color:#fff}
 
 <section class="hero"><div class="wrap hg">
 <div>
-<h1>Software that helps Zimbabwean businesses run properly.</h1>
-<p>We’re Electrify Technologies in Mutare. We make Spark Point of Sale for shops and restaurants, build websites and WhatsApp chatbots, and supply HR and attendance software for companies and schools.</p>
-<div class="row">
+<h1 class="up d1">Software that helps Zimbabwean businesses run properly.</h1>
+<p class="up d2">We’re Electrify Technologies in Mutare. We make Spark Point of Sale for shops and restaurants, build websites and WhatsApp chatbots, and supply HR and attendance software for companies and schools.</p>
+<div class="row up d3">
 <a class="btn y" href="#spark-pos">See Spark POS</a>
 <a class="btn o" href="https://wa.me/263719618527?text=Hello%2C%20I%27d%20like%20a%20Spark%20POS%20demo" target="_blank"><i class="fab fa-whatsapp"></i> Ask for a demo</a>
 </div>
 </div>
-<div><img src="spark-poster.png" alt="Spark Point of Sale flyer"></div>
+<div class="qs up d4">
+<a class="qc" href="#spark-pos"><i class="fas fa-cash-register"></i><div><b>Spark Point of Sale</b><span>Sales, stock and accounting, ZIMRA ready</span></div></a>
+<a class="qc" href="#package"><i class="fas fa-globe"></i><div><b>3in1 Business Package</b><span>Website, WhatsApp chatbot and company emails</span></div></a>
+<a class="qc" href="#hr"><i class="fas fa-user-check"></i><div><b>Facial Recognition Attendance</b><span>HR, payroll and attendance in one</span></div></a>
+</div>
 </div></section>
 
 <section id="spark-pos" class="sec"><div class="wrap">
@@ -272,7 +289,9 @@ footer a{color:#fff}
 document.querySelector('.burger').onclick=()=>document.querySelector('.links').classList.toggle('on');
 document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.querySelector('.links').classList.remove('on'));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.f,.sv').forEach((el,i)=>{el.classList.add('rv');el.style.transitionDelay=(i%3)*90+'ms'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.f,.sv').forEach(el=>el.addEventListener('transitionend',()=>{el.style.transitionDelay=''},{once:true}));
 </script>
 </body>
 </html>
